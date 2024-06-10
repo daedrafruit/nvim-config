@@ -1,4 +1,4 @@
-package.path = package.path .. 'C:/Users/parke/AppData/Local/nvim/lua/?.lua'
+package.path = package.path .. '~/AppData/Local/nvim/lua/?.lua'
 
 require('options')
 require('keymappings')
