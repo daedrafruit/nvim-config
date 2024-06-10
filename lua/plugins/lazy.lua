@@ -36,7 +36,11 @@ require("lazy").setup({
 
 { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
-{ 'Mofiqul/vscode.nvim' }
+{ 'Mofiqul/vscode.nvim' },
+
+{'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
+
+{ 'feline-nvim/feline.nvim', branch = '0.5-compat' },
 
 })
 

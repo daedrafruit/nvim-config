@@ -9,9 +9,12 @@ require('plugins.telescope')
 require('plugins.nvim-treesitter')
 require('plugins.lsp.mason')
 
-
 require('plugins.lsp.lspconfig')
 require('plugins.lsp.cmp')
 
+require('plugins.bufferline')
+
+--require('plugins.feline')
 
 vim.cmd.colorscheme "vscode"
+--vim.cmd.colorscheme "catppuccin"
