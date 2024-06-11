@@ -40,7 +40,5 @@ require("lazy").setup({
 
 {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'},
 
-{ 'feline-nvim/feline.nvim', branch = '0.5-compat' },
-
 })
 
