@@ -12,7 +12,7 @@ require('plugins.lsp.mason')
 require('plugins.lsp.lspconfig')
 require('plugins.lsp.cmp')
 
-require('plugins.bufferline')
+--require('plugins.bufferline')
 
 --require('plugins.feline')
 

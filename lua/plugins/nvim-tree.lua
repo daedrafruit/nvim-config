@@ -13,6 +13,10 @@ vim.api.nvim_create_autocmd("DirChanged", {
 
 -- nvim-tree setup
 require('nvim-tree').setup {
+	hijack_directories = {
+        enable = false,
+        auto_open = false,
+			},
   update_cwd = true,  -- Automatically update the root directory of the tree on `DirChanged` event
 }
 
