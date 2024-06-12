@@ -12,6 +12,8 @@ vim.keymap.set('n', '<F5>', ':wa<CR>:!make<CR>', { noremap = true, silent = true
 vim.keymap.set('n', '<F6>', ':!run<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<F7>', ':wa<CR>:!make<CR>:!run<CR>', { noremap = true, silent = true })
 
+vim.api.nvim_set_keymap('n', '<leader>th', ':lua require("vim.fn").system("powershell -c \"$p = Get-ItemProperty -Path \'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\'; if ($p.AutoHideTaskbar -eq 1) { Set-ItemProperty -Path \'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\' -Name \'AutoHideTaskbar\' -Value 0 } else { Set-ItemProperty -Path \'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\' -Name \'AutoHideTaskbar\' -Value 1 }\"")<CR>', { noremap = true, silent = true })
+
 
 
 

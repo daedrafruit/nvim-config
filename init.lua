@@ -12,9 +12,11 @@ require('plugins.lsp.mason')
 require('plugins.lsp.lspconfig')
 require('plugins.lsp.cmp')
 
+--require('plugins.themes.vscode')
+
+require('plugins.themes.catpuccin')
+
 --require('plugins.bufferline')
 
 --require('plugins.feline')
 
-vim.cmd.colorscheme "vscode"
---vim.cmd.colorscheme "catppuccin"
