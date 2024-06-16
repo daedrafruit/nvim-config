@@ -17,6 +17,9 @@ require("lazy").setup({
 
 	{'nvim-telescope/telescope.nvim', tag = '0.1.6', dependencies = { 'nvim-lua/plenary.nvim' }},
 
+	{'mfussenegger/nvim-dap'},
+	{ "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 	{ "williamboman/mason.nvim", dependencies = { 'williamboman/mason-lspconfig.nvim' }},
 	{'neovim/nvim-lspconfig'},

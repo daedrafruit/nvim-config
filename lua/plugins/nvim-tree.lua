@@ -2,7 +2,7 @@ require("nvim-tree").setup()
 
 local api = require "nvim-tree.api"
 
-vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<CR>')
+vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<CR>', { noremap = true, silent = true })
 
 -- Update nvim-tree root directory when the working directory changes
 vim.api.nvim_create_autocmd("DirChanged", {
