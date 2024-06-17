@@ -9,19 +9,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-
-	{"nvim-tree/nvim-tree.lua", version = "*", lazy = false, dependencies = { "nvim-tree/nvim-web-devicons", }},
-
-	{'nvim-telescope/telescope.nvim', tag = '0.1.6', dependencies = { 'nvim-lua/plenary.nvim' }},
-
-	{'mfussenegger/nvim-dap'},
-	{ "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-	{ "williamboman/mason.nvim", dependencies = { 'williamboman/mason-lspconfig.nvim' }},
+
+	{ "williamboman/mason.nvim", dependencies = { 'williamboman/mason-lspconfig.nvim', 'jay-babu/mason-nvim-dap.nvim' }},
+
 	{'neovim/nvim-lspconfig'},
 	{'hrsh7th/nvim-cmp', dependencies = {
 		'hrsh7th/cmp-nvim-lsp',
@@ -34,7 +31,12 @@ require("lazy").setup({
 		'hrsh7th/vim-vsnip'
 	}},
 
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{"nvim-tree/nvim-tree.lua", version = "*", lazy = false, dependencies = { "nvim-tree/nvim-web-devicons", }},
+
+	{'nvim-telescope/telescope.nvim', tag = '0.1.6', dependencies = { 'nvim-lua/plenary.nvim' }},
+
+	{'mfussenegger/nvim-dap'},
+	{ "rcarriga/nvim-dap-ui", dependencies = {"nvim-neotest/nvim-nio"} }
 
 })
 

@@ -11,5 +11,8 @@ require("mason").setup({
 
 require("mason-lspconfig").setup ({
     ensure_installed = { "clangd" },
+})
+
+require("mason-nvim-dap").setup ({
     ensure_installed = { "cpptools" },
 })
