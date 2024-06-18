@@ -18,7 +18,14 @@ dap.configurations.cpp = {
     end,
     cwd = '${workspaceFolder}',
     stopAtEntry = false,
-  },
+		setupCommands = {
+				{
+					text = '-enable-pretty-printing',
+					description = 'enable pretty printing',
+					ignoreFailures = false
+				},
+			},
+		},
 }
 
 vim.keymap.set('n', '<leader>dr', function() require'dap'.continue() end, { noremap = true, silent = true })
