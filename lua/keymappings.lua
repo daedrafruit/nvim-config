@@ -8,7 +8,8 @@ vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', { noremap = true, sil
 vim.keymap.set('n', '<leader>cD', ':cd %:p:h:h<CR>:pwd<CR>', { noremap = true, silent = true })
 
 -- make/run 
-vim.keymap.set('n', '<leader>mm', ':wa<CR>:!make<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>mb', ':wa<CR>:!make<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>mm', ':wa<CR>:!make<CR>:!run<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>mc', ':!make clean<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>mr', ':!run<CR>', { noremap = true, silent = true })
 

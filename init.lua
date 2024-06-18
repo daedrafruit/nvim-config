@@ -6,6 +6,7 @@ require('keymappings')
 require('plugins.lazy')
 
 require('plugins.lsp.mason')
+require('plugins.lsp.lspconfig')
 require('plugins.lsp.cmp')
 
 require('plugins.nvim-dap')

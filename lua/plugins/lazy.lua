@@ -17,7 +17,7 @@ require("lazy").setup({
 
 	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
 
-	{ "williamboman/mason.nvim", dependencies = { 'williamboman/mason-lspconfig.nvim', 'jay-babu/mason-nvim-dap.nvim' }},
+	{ "williamboman/mason.nvim", dependencies = { 'williamboman/mason-lspconfig.nvim' }},
 
 	{'neovim/nvim-lspconfig'},
 	{'hrsh7th/nvim-cmp', dependencies = {
