@@ -9,10 +9,16 @@ require("mason").setup({
     }
 })
 
-require("mason-lspconfig").setup ({
-    ensure_installed = { "clangd" },
-})
+local mason_registry = require("mason-registry")
 
-require("mason-nvim-dap").setup ({
-    ensure_installed = { "cpptools" },
-})
+local ensure_installed = {
+	"clangd",
+	"cpptools", 		
+}
+
+for _, tool in ipairs(ensure_installed) do
+    local package = mason_registry.get_package(tool)
+    if not package:is_installed() then
+        package:install()
+    end
+end
