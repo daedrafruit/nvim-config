@@ -8,7 +8,7 @@ checkState:
 return
 
 ; Alt + Win + C to run Windows Terminal, minimize all windows, and toggle taskbar state
-!#c::
+#c::
 	if (WinExist("PowerShell") or WinExist("Administrator: PowerShell")) {
 		WinMinimizeAll
 		WinActivate, Windows Terminal
