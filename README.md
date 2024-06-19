@@ -1,12 +1,12 @@
 On initial setup just quit and reopen a couple times, also run :Mason then restart.
 
-Dependencies: 
-Linux:
+Dependencies: \
+Linux:\
     unzip
 
-Windows:
+Windows:\
     DBG: cpptools (installs automatically)
 
-For C/C++:
-    LSP: clangd 
+For C/C++:\
+    LSP: clangd\
     Compiler: gcc
