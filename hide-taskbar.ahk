@@ -1,6 +1,6 @@
 SetTimer, checkState, 250
 checkState:
-	if (WinActive("PowerShell") or WinActive("Administrator: PowerShell") or WinActive("Ubuntu")) {
+	if (WinActive("PowerShell") or WinActive("Administrator: PowerShell") or WinActive("Fedora")) {
 		enableAutoTaskbar()
 	} else {
 		disableAutoTaskbar()
@@ -9,7 +9,7 @@ return
 
 ; Alt + Win + C to run Windows Terminal, minimize all windows, and toggle taskbar state
 #c::
-	if (WinExist("PowerShell") or WinExist("Administrator: PowerShell") or WinExist("Ubuntu")) {
+	if (WinExist("PowerShell") or WinExist("Administrator: PowerShell") or WinExist("Fedora")) {
 		WinMinimizeAll
 		WinActivate, Windows Terminal
 		WinActivate, PowerShell

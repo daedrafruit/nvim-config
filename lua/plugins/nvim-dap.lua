@@ -28,6 +28,25 @@ dap.configurations.cpp = {
 		},
 }
 
+dap.adapters.gdb = {
+  type = "executable",
+  command = "gdb",
+  args = { "-i", "dap" }
+}
+
+dap.configurations.c = {
+  {
+    name = "Launch",
+    type = "gdb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = "${workspaceFolder}",
+    stopAtBeginningOfMainSubprogram = true,
+  },
+}
+
 vim.keymap.set('n', '<leader>dr', function() require'dap'.continue() end, { noremap = true, silent = true })
 
 vim.keymap.set('n', '<F9>', ':DapStepOver<CR>' , { noremap = true, silent = true })
