@@ -14,7 +14,7 @@ return
 		WinActivate, Windows Terminal
 		WinActivate, PowerShell
 		WinActivate, Administrator: PowerShell
-		WinActivate, Ubuntu
+		WinActivate, Fedora
 	} else {
 		Run, wt
 		WinMinimizeAll
