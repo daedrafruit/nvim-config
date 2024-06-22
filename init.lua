@@ -7,21 +7,29 @@ else
     package.path = package.path .. ";" .. home .. "/AppData/Local/nvim/lua/?.lua"
 end
 
+--stock
 require('options')
 require('keymappings')
-require('netrw')
+require('netrw') --file browser
 
+--package mangagers
 require('plugins.lazy')
-
 require('plugins.lsp.mason')
-require('plugins.lsp.lspconfig')
-require('plugins.lsp.cmp')
-require('plugins.nvim-treesitter')
 
+--theme
+require('plugins.themes.catpuccin')
+
+--fuzzy finder and grep
+require('plugins.telescope')
+
+--language server protocol config
+require('plugins.lsp.lspconfig')
+require('plugins.lsp.cmp') --auto complete
+require('plugins.nvim-treesitter') --syntax highlighting
+
+--debugger
 require('plugins.nvim-dap')
 require('plugins.nvim-dap-ui')
 
-require('plugins.telescope')
 
-require('plugins.themes.catpuccin')
 
