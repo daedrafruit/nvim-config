@@ -17,8 +17,8 @@ vim.keymap.set('n', '<leader>mr', ':!run<CR>', { noremap = true, silent = true }
 vim.keymap.set('n', '<leader>w', '<C-w>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>wv', '<C-w>v<CR><C-w>w<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ws', '<C-w>s<CR><C-w>w<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>w,', '5<C-w>><CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>w.', '5<C-w><<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>w,', '5<C-w><<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>w.', '5<C-w>><CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>ct', '<C-w>s<CR><C-w>w:terminal<CR>7<C-w>-<CR>', { noremap = true, silent = true })
 
