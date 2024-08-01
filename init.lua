@@ -28,9 +28,17 @@ require('plugins.lsp.lspconfig')
 require('plugins.lsp.cmp') --auto complete
 require('plugins.nvim-treesitter') --syntax highlighting
 
+--code fold
+require('plugins.toggleterm')
+
 --debugger
 require('plugins.nvim-dap')
 require('plugins.nvim-dap-ui')
 
+--terminal 
+require('plugins.toggleterm')
+
+--code fold 
+require('plugins.nvim-ufo')
 
 
