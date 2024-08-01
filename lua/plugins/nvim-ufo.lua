@@ -10,6 +10,7 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
 --vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 vim.keymap.set('n', 'zM', ':%foldc<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', 'zm', ':%foldc<CR>', { noremap = true, silent = true })
 --vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
 --vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith)
 
