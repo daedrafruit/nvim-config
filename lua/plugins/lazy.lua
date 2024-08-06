@@ -36,6 +36,7 @@ require("lazy").setup({
 	{'nvim-telescope/telescope.nvim', tag = '0.1.6', dependencies = { 'nvim-lua/plenary.nvim' }},
 
 	{'mfussenegger/nvim-dap'},
+	{'mfussenegger/nvim-dap-python'},
 	{ "rcarriga/nvim-dap-ui", dependencies = {"nvim-neotest/nvim-nio"} },
 
 	{'akinsho/toggleterm.nvim', version = "*", config = true},

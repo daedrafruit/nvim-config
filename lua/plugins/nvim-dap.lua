@@ -1,4 +1,17 @@
+vim.keymap.set('n', '<leader>dr', function() require'dap'.continue() end, { noremap = true, silent = true })
+
+vim.keymap.set('n', '<F9>', ':DapStepOver<CR>' , { noremap = true, silent = true })
+vim.keymap.set('n', '<F10>', ':DapStepInto<CR>' , { noremap = true, silent = true })
+vim.keymap.set('n', '<F11>', ':DapStepOver<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>db', ':DapToggleBreakpoint<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>dB', function() require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>dlp', function() require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>dR', 'DapToggleRepl<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>dq', ':DapTerminate<CR>', { noremap = true, silent = true }) -- Keybinding to terminate the session
+
 local dap = require('dap')
+
+-- C++
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
@@ -28,6 +41,7 @@ dap.configurations.cpp = {
 		},
 }
 
+-- C
 --gdb needs to be installed manually
 dap.adapters.gdb = {
   type = "executable",
@@ -48,15 +62,7 @@ dap.configurations.c = {
   },
 }
 
-vim.keymap.set('n', '<leader>dr', function() require'dap'.continue() end, { noremap = true, silent = true })
-
-vim.keymap.set('n', '<F9>', ':DapStepOver<CR>' , { noremap = true, silent = true })
-vim.keymap.set('n', '<F10>', ':DapStepInto<CR>' , { noremap = true, silent = true })
-vim.keymap.set('n', '<F11>', ':DapStepOver<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>db', ':DapToggleBreakpoint<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>dB', function() require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>dlp', function() require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>dR', 'DapToggleRepl<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>dq', ':DapTerminate<CR>', { noremap = true, silent = true }) -- Keybinding to terminate the session
+-- Python
+require("dap-python").setup(vim.fn.stdpath("data") .. "\\mason\\packages\\debugpy\\venv\\Scripts\\python.exe")
 
 
