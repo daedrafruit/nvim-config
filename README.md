@@ -1,10 +1,16 @@
 On initial setup just quit and reopen a couple times, also run :Mason then restart.  
   
-Basically a fully(?) featured C/C++ IDE in Neovim
+Neovim config that fully supports C++ (lsp/autocomplete/debugging) and partially supports C and Python.
+
+For better LSP support make sure your project has a compilecommands.json (C++) or a pyrightconfig.json (Python) at its root.
 
 External Dependencies:  
 Linux:  
 > unzip  
 
-For C debugging:  
-> Compiler: gcc  
+C/C++:  
+> gcc  
+
+Python:
+> Python
+> nodejs (for pyright)

@@ -28,6 +28,7 @@ dap.configurations.cpp = {
 		},
 }
 
+--gdb needs to be installed manually
 dap.adapters.gdb = {
   type = "executable",
   command = "gdb",

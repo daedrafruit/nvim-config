@@ -12,8 +12,10 @@ require("mason").setup({
 local mason_registry = require("mason-registry")
 
 local ensure_installed = {
-	"clangd", --lsp
-	"cpptools", --debugger		
+	"clangd", --cpp lsp
+	"cpptools", --cpp debugger		
+	"pyright", --python lsp
+	"debugpy", --python debugger
 }
 
 for _, tool in ipairs(ensure_installed) do
