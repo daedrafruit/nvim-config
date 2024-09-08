@@ -1,12 +1,3 @@
-local is_wsl = (os.getenv("WSL_DISTRO_NAME") ~= nil)
-local home = os.getenv("HOME")
-
-if is_wsl then
-    package.path = package.path .. ";" .. home .. "/.config/nvim/lua/?.lua"
-else
-    package.path = package.path .. ";" .. home .. "/AppData/Local/nvim/lua/?.lua"
-end
-
 --stock
 require('options')
 require('keymappings')
