@@ -29,4 +29,6 @@ require('plugins.toggleterm')
 --code fold 
 require('plugins.nvim-ufo')
 
+require('plugins.nvim-colorizer')
+
 
