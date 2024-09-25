@@ -10,6 +10,7 @@ require('plugins.lsp.mason')
 --theme
 require('plugins.themes.catpuccin')
 
+
 --fuzzy finder and grep
 require('plugins.telescope')
 require('plugins.nvim-tree')
