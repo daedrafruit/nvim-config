@@ -44,5 +44,7 @@ require("lazy").setup({
 	{'kevinhwang91/nvim-ufo', dependencies='kevinhwang91/promise-async'},
 
 	{'norcalli/nvim-colorizer.lua'},
+
+	{'rmagatti/auto-session', lazy = false, opts = { suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },}},
 })
 

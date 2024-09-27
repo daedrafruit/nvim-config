@@ -1,4 +1,14 @@
-require("telescope").setup()
+require('telescope').setup {
+  defaults = {
+    file_ignore_patterns = { "%.git/", "%.cache/", "%.o" }, -- Ignore .git directories
+  },
+  pickers = {
+    find_files = {
+      hidden = false, -- Show hidden files
+      follow = true  -- Follow symlinks
+    }
+  }
+}
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { noremap = true, silent = true })
