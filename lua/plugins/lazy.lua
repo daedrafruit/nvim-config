@@ -45,6 +45,6 @@ require("lazy").setup({
 
 	{'norcalli/nvim-colorizer.lua'},
 
-	{'rmagatti/auto-session', lazy = false, opts = { suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },}},
+	{'rmagatti/auto-session', lazy = false},
 })
 

@@ -30,6 +30,10 @@ require('plugins.toggleterm')
 --code fold 
 require('plugins.nvim-ufo')
 
+--inline color previews
 require('plugins.nvim-colorizer')
+
+--session management
+require('plugins.auto-session')
 
 
