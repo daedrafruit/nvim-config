@@ -13,14 +13,33 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-	{ 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
-
-	{'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
-
+	
+	--package manager (lsp, debuger, etc)
 	{ 'williamboman/mason.nvim', dependencies = { 'williamboman/mason-lspconfig.nvim' }},
 
+	--theme
+	{ 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+	
+	--session management
+	{'rmagatti/auto-session'},
+
+	--terminal
+	{'akinsho/toggleterm.nvim', config = true},
+
+	--file browser
+	{'nvim-tree/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons', }},
+	--fuzzy finder and grep
+	{'nvim-telescope/telescope.nvim', tag='0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }},
+
+	--code fold
+	{'kevinhwang91/nvim-ufo', dependencies='kevinhwang91/promise-async'},
+	--inline color previews
+	{'norcalli/nvim-colorizer.lua'},
+
+	--lsp config
 	{'neovim/nvim-lspconfig'},
-	{'hrsh7th/nvim-cmp', dependencies = {
+	--auto complete
+	{'hrsh7th/nvim-cmp', dependencies = { --auto complete
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-path',
@@ -30,21 +49,16 @@ require('lazy').setup({
 		'hrsh7th/cmp-vsnip',
 		'hrsh7th/vim-vsnip'
 	}},
+	--syntax highlighting
+	{'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
 
-	{'nvim-tree/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons', }},
-
-	{'nvim-telescope/telescope.nvim', tag='0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }},
-
+	--debugger
 	{'mfussenegger/nvim-dap', lazy = true },
+	--python
 	{'mfussenegger/nvim-dap-python', ft = { 'python' }},
+	--ui
 	{'rcarriga/nvim-dap-ui', lazy = true, dependencies = { 'nvim-neotest/nvim-nio' }},
 
-	{'akinsho/toggleterm.nvim', config = true},
-
-	{'kevinhwang91/nvim-ufo', dependencies='kevinhwang91/promise-async'},
-
-	{'norcalli/nvim-colorizer.lua'},
-
-	{'rmagatti/auto-session'},
+	--{'nvim-java/nvim-java'},
 })
 
