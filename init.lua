@@ -11,9 +11,9 @@ require('plugins.lsp.mason') --lsp, debugger, etc
 --theme
 require('plugins.themes.catpuccin')
 
-
 --session management
 require('plugins.auto-session')
+
 
 --terminal 
 require('plugins.toggleterm')

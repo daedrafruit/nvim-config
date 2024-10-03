@@ -23,6 +23,7 @@ require('lazy').setup({
 	--session management
 	{'rmagatti/auto-session'},
 
+
 	--terminal
 	{'akinsho/toggleterm.nvim', config = true},
 
@@ -35,6 +36,7 @@ require('lazy').setup({
 	{'kevinhwang91/nvim-ufo', dependencies='kevinhwang91/promise-async'},
 	--inline color previews
 	{'norcalli/nvim-colorizer.lua'},
+
 
 	--lsp config
 	{'neovim/nvim-lspconfig'},
@@ -51,6 +53,7 @@ require('lazy').setup({
 	}},
 	--syntax highlighting
 	{'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
+
 
 	--debugger
 	{'mfussenegger/nvim-dap', lazy = true },
