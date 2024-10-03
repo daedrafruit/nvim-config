@@ -12,5 +12,5 @@ C/C++:
 > gcc  
 
 Python:
-> Python
+> Python  
 > nodejs (for pyright)

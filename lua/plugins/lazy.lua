@@ -1,23 +1,23 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
     lazypath,
   })
 end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+require('lazy').setup({
+	{ 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
 
-	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+	{'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
 
-	{ "williamboman/mason.nvim", dependencies = { 'williamboman/mason-lspconfig.nvim' }},
+	{ 'williamboman/mason.nvim', dependencies = { 'williamboman/mason-lspconfig.nvim' }},
 
 	{'neovim/nvim-lspconfig'},
 	{'hrsh7th/nvim-cmp', dependencies = {
@@ -31,20 +31,20 @@ require("lazy").setup({
 		'hrsh7th/vim-vsnip'
 	}},
 
-	{"nvim-tree/nvim-tree.lua", version = "*", lazy = false, dependencies = { "nvim-tree/nvim-web-devicons", }},
+	{'nvim-tree/nvim-tree.lua', dependencies = { 'nvim-tree/nvim-web-devicons', }},
 
-	{'nvim-telescope/telescope.nvim', tag = '0.1.6', dependencies = { 'nvim-lua/plenary.nvim' }},
+	{'nvim-telescope/telescope.nvim', tag='0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }},
 
-	{'mfussenegger/nvim-dap'},
-	{'mfussenegger/nvim-dap-python'},
-	{ "rcarriga/nvim-dap-ui", dependencies = {"nvim-neotest/nvim-nio"} },
+	{'mfussenegger/nvim-dap', lazy = true },
+	{'mfussenegger/nvim-dap-python', ft = { 'python' }},
+	{'rcarriga/nvim-dap-ui', lazy = true, dependencies = { 'nvim-neotest/nvim-nio' }},
 
-	{'akinsho/toggleterm.nvim', version = "*", config = true},
+	{'akinsho/toggleterm.nvim', config = true},
 
 	{'kevinhwang91/nvim-ufo', dependencies='kevinhwang91/promise-async'},
 
 	{'norcalli/nvim-colorizer.lua'},
 
-	{'rmagatti/auto-session', lazy = false},
+	{'rmagatti/auto-session'},
 })
 
