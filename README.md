@@ -5,6 +5,8 @@ Neovim config that fully supports C++ (lsp/autocomplete/debugging) and partially
 For better LSP support make sure your project has a compilecommands.json (C++) or a pyrightconfig.json (Python) at its root.
 
 External Dependencies:  
+> ripgrep (for live_grep in telescope) 
+
 Linux:  
 > unzip  
 

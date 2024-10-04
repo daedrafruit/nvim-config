@@ -36,10 +36,10 @@ vim.opt.cursorline = true
 vim.opt.autoread = true
 
 vim.opt.statusline = ""
-vim.opt.statusline:append("%l")           -- current line
-vim.opt.statusline:append("/%L")              -- total lines
+--vim.opt.statusline:append("%l")           -- current line
+--vim.opt.statusline:append("/%L")              -- total lines
 vim.opt.statusline:append("%=")           -- split in half (go to right side)
-vim.opt.statusline:append("%f")            -- relative path 
+vim.opt.statusline:append("%t")            -- filename
 vim.opt.statusline:append("%m")               -- modified flag
 vim.opt.statusline:append("%R")               -- read only flag
 --vim.opt.statusline:append("%4n")              -- buffer number

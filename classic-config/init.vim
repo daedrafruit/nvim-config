@@ -84,9 +84,9 @@ highlight CursorLineNr ctermfg=lightgray guifg=lightgray
 
 " Statusline configuration
 set statusline=
-set statusline+=%l              " current line
-set statusline+=/%L             " total lines
+"set statusline+=%l              " current line
+"set statusline+=/%L             " total lines
 set statusline+=%=              " split in half (go to right side)
-set statusline+=%f              " relative path
+set statusline+=%t              " filename
 set statusline+=%m              " modified flag
 set statusline+=%R              " read-only flag
