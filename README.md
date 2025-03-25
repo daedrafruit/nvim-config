@@ -19,8 +19,8 @@ Python:
 
 If mason fails to install debugpy:
 ```  
-mkdir /Users/kn/.local/share/nvim/mason/packages/debugpy/venv/ -p  
-python -m venv /Users/kn/.local/share/nvim/mason/packages/debugpy/venv  
-/Users/kn/.local/share/nvim/mason/packages/debugpy/venv/bin/pip install debugpy  
+mkdir ~/.local/share/nvim/mason/packages/debugpy/venv/ -p  
+python -m venv ~/.local/share/nvim/mason/packages/debugpy/venv  
+~/.local/share/nvim/mason/packages/debugpy/venv/bin/pip install debugpy  
 ```
 
