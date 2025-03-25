@@ -17,7 +17,7 @@ Python:
 > Python  
 > nodejs (for pyright)
 
-> If mason fails to install debugpy
+If mason fails to install debugpy:
 ```  
 mkdir /Users/kn/.local/share/nvim/mason/packages/debugpy/venv/ -p  
 python -m venv /Users/kn/.local/share/nvim/mason/packages/debugpy/venv  
