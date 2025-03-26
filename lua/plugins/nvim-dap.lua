@@ -70,3 +70,49 @@ require("dap-python").setup(is_windows
   and vim.fn.stdpath("data") .. "\\mason\\packages\\debugpy\\venv\\Scripts\\python.exe"
   or vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python"
 )
+
+dap.configurations.java = {
+  {
+    type = "java",
+    request = "attach",
+    name = "Attach to Gradle",
+    hostName = "127.0.0.1",
+    port = 5005,
+    mainClass = function()
+      local gradle_file = io.open('build.gradle', 'r')
+      if not gradle_file then
+        print("Error in 'build.gradle': Ensure the file exists and contains 'mainClass = <your.main.ClassName>'.")
+        return nil
+      end
+
+      local content = gradle_file:read('*a')
+      gradle_file:close()
+
+      local main_class = content:match("mainClass%s*=%s*['\"]([%w%.]+)['\"]")
+      if not main_class then
+        print("Error in 'build.gradle': Ensure the file contains 'mainClass = <your.main.ClassName>'.")
+        return nil
+      end
+
+      return main_class
+    end,
+    projectName = function()
+      local settings_file = io.open('settings.gradle', 'r')
+      if not settings_file then
+        print("Error in 'settings.gradle': Ensure the file exists and contains 'rootProject.name = <your-project-name>'.")
+        return vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+      end
+
+      local content = settings_file:read('*a')
+      settings_file:close()
+
+      local project_name = content:match("rootProject%.name%s*=%s*['\"]([%w-]+)['\"]")
+      if not project_name then
+        print("Error in 'settings.gradle': Ensure the file contains 'rootProject.name = <your-project-name>'.")
+        return vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+      end
+
+      return project_name
+    end
+  }
+}
