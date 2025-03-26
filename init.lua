@@ -39,5 +39,3 @@ require('plugins.nvim-treesitter') --syntax highlighting
 require('plugins.nvim-dap')
 require('plugins.nvim-dap-ui')
 
---java is loaded by ftplugin/java.lua
-

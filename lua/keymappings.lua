@@ -11,7 +11,7 @@ vim.keymap.set('n', '<leader>cD', ':cd %:p:h:h<CR>:pwd<CR>', { noremap = true, s
 vim.keymap.set('n', '<leader>mb', ':wa<CR>:!make<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>mm', ':wa<CR>:!make<CR>:!./run<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>mc', ':!make clean<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>mr', ':!./run<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>mr', ':!make run<CR>', { noremap = true, silent = true })
 
 -- use leader for window commands
 vim.keymap.set('n', '<leader>w', '<C-w>', { noremap = true, silent = true })
