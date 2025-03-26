@@ -75,44 +75,30 @@ dap.configurations.java = {
   {
     type = "java",
     request = "attach",
-    name = "Attach to Gradle",
+    name = "Run Gradle and Attach",
     hostName = "127.0.0.1",
     port = 5005,
+    program = function()
+      vim.fn.jobstart(
+        'gradle run',
+        {
+          on_exit = function(_, code)
+						print("Gradle exited with code", code)
+          end
+        }
+      )
+		end,
     mainClass = function()
-      local gradle_file = io.open('build.gradle', 'r')
-      if not gradle_file then
-        print("Error in 'build.gradle': Ensure the file exists and contains 'mainClass = <your.main.ClassName>'.")
-        return nil
-      end
-
-      local content = gradle_file:read('*a')
-      gradle_file:close()
-
-      local main_class = content:match("mainClass%s*=%s*['\"]([%w%.]+)['\"]")
-      if not main_class then
-        print("Error in 'build.gradle': Ensure the file contains 'mainClass = <your.main.ClassName>'.")
-        return nil
-      end
-
-      return main_class
+      local content = io.open('build.gradle'):read('*a') or
+      	print("Could not find main class in build.gradle")
+      return content:match("mainClass%s*=%s*['\"]([%w%.]+)['\"]") or
+      	print("Could not find main class in build.gradle")
     end,
     projectName = function()
-      local settings_file = io.open('settings.gradle', 'r')
-      if not settings_file then
-        print("Error in 'settings.gradle': Ensure the file exists and contains 'rootProject.name = <your-project-name>'.")
-        return vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
-      end
-
-      local content = settings_file:read('*a')
-      settings_file:close()
-
-      local project_name = content:match("rootProject%.name%s*=%s*['\"]([%w-]+)['\"]")
-      if not project_name then
-        print("Error in 'settings.gradle': Ensure the file contains 'rootProject.name = <your-project-name>'.")
-        return vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
-      end
-
-      return project_name
+      local content = io.open('settings.gradle'):read('*a') or
+      	print("Could not find project name in settings.gradle")
+      return content:match("rootProject%.name%s*=%s*['\"]([%w-]+)['\"]") or
+      	print("Could not find project name in settings.gradle")
     end
   }
 }
