@@ -25,7 +25,7 @@ require('plugins.telescope')
 
 
 --code fold 
-require('plugins.nvim-ufo')
+--require('plugins.nvim-ufo')
 --inline color previews
 require('plugins.nvim-colorizer')
 
@@ -39,5 +39,5 @@ require('plugins.nvim-treesitter') --syntax highlighting
 require('plugins.nvim-dap')
 require('plugins.nvim-dap-ui')
 
-
+--java is loaded by ftplugin/java.lua
 

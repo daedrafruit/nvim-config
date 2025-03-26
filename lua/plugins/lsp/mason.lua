@@ -16,7 +16,8 @@ local ensure_installed = {
 	"cpptools", --cpp debugger		
 	"pyright", --python lsp
 	"debugpy", --python debugger
-	"lua-language-server" --lua lsp
+	"lua-language-server", --lua lsp
+	"jdtls" --java lsp
 }
 
 for _, tool in ipairs(ensure_installed) do

@@ -36,3 +36,5 @@ lspconfig.lua_ls.setup{
     vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   end,
 }
+
+-- java config is in ftplugins/java.lua
