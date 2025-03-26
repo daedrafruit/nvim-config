@@ -39,3 +39,5 @@ require('plugins.nvim-treesitter') --syntax highlighting
 require('plugins.nvim-dap')
 require('plugins.nvim-dap-ui')
 
+require('plugins.nvim-java')
+

@@ -62,6 +62,7 @@ require('lazy').setup({
 	--ui
 	{'rcarriga/nvim-dap-ui', lazy = true, dependencies = { 'nvim-neotest/nvim-nio' }},
 
-	{'nvim-java/nvim-java', ft = {'java', 'class'}},
+	{'nvim-java/nvim-java'},
+
 })
 
