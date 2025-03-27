@@ -1,3 +1,8 @@
+-- load project specific .nvimrc or .vimrc files
+vim.o.exrc = true
+-- restrict unsafe commands in local configs
+vim.o.secure = true
+
 --stock
 require('options')
 require('keymappings')
