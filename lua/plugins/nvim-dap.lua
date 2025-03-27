@@ -71,7 +71,50 @@ require("dap-python").setup(is_windows
   or vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python"
 )
 
+local shared = {}
+
+--Java
 dap.configurations.java = {
+	{
+    type = 'java',
+    request = 'launch',
+    name = 'Gradle',
+    projectName = function()
+      local content = io.open('settings.gradle'):read('*a')
+      return content:match("rootProject%.name%s*=%s*['\"]([%w-]+)['\"]")
+    end,
+    mainClass = function()
+      local content = io.open('build.gradle'):read('*a')
+      return content:match("mainClass%s*=%s*['\"]([%w%.]+)['\"]")
+    end,
+    --javaExec added by jdtls
+    --classPaths added by jdtls
+    --modulePaths added by jdtls
+  },
+
+	--read what we can from gradle, input rest
+	{
+		type = 'java',
+		request = 'launch',
+		name = 'Gradle with Args',
+		projectName = function()
+			return (io.open('settings.gradle'):read('*a') or ''):match("rootProject%.name%s*=%s*['\"]([%w-]+)['\"]") or ''
+		end,
+		mainClass = function()
+			return (io.open('build.gradle'):read('*a') or ''):match("mainClass%s*=%s*['\"]([%w%.]+)['\"]") or ''
+		end,
+		vmArgs = function()
+			local input = vim.fn.input('Enter vmArgs, Args: ', '')
+			local vmArgs, args = input:match("^%s*([^,]*),%s*(.-)%s*$")
+			if not vmArgs then vmArgs = '' end
+			if not args then args = '' end
+			shared.args = args:gsub("^%s*(.-)%s*$", "%1")
+			return vmArgs:gsub("^%s*(.-)%s*$", "%1")
+		end,
+		args = function() return shared.args or '' end,
+	},
+
+	--universal gradle config that attaches directly, buggy
   {
     type = "java",
     request = "attach",
@@ -89,16 +132,12 @@ dap.configurations.java = {
       )
 		end,
     mainClass = function()
-      local content = io.open('build.gradle'):read('*a') or
-      	print("Could not find main class in build.gradle")
-      return content:match("mainClass%s*=%s*['\"]([%w%.]+)['\"]") or
-      	print("Could not find main class in build.gradle")
+      local content = io.open('build.gradle'):read('*a')
+      return content:match("mainClass%s*=%s*['\"]([%w%.]+)['\"]")
     end,
     projectName = function()
-      local content = io.open('settings.gradle'):read('*a') or
-      	print("Could not find project name in settings.gradle")
-      return content:match("rootProject%.name%s*=%s*['\"]([%w-]+)['\"]") or
-      	print("Could not find project name in settings.gradle")
+      local content = io.open('settings.gradle'):read('*a')
+      return content:match("rootProject%.name%s*=%s*['\"]([%w-]+)['\"]")
     end
-  }
+  },
 }
