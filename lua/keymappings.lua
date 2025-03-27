@@ -4,8 +4,10 @@ vim.g.maplocalleader = ' '
 
 -- change cwd
 vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', { noremap = true, silent = true })
--- Change to the parent directory of the current file's directory
-vim.keymap.set('n', '<leader>cD', ':cd %:p:h:h<CR>:pwd<CR>', { noremap = true, silent = true })
+-- change to the parent directory of the current file's directory
+--vim.keymap.set('n', '<leader>cD', ':cd %:p:h:h<CR>:pwd<CR>', { noremap = true, silent = true })
+-- change to the root based on .git
+vim.keymap.set('n', '<leader>cD', function() root = vim.fs.root(0, '.git') vim.cmd("cd " .. root) end, { noremap = true, silent = true })
 
 -- make/run 
 vim.keymap.set('n', '<leader>mb', ':wa<CR>:!make<CR>', { noremap = true, silent = true })
