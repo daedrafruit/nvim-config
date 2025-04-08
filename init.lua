@@ -30,7 +30,7 @@ require('plugins.telescope')
 
 
 --code fold 
---require('plugins.nvim-ufo')
+require('plugins.nvim-ufo')
 --inline color previews
 require('plugins.nvim-colorizer')
 
