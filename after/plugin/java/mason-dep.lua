@@ -24,7 +24,7 @@ mason_dep.get_pkg_list = function(config)
         deps:push({ name = 'openjdk-17', version = config.jdk.version })
     end
 
-    if config.spring_boot_tools.enable and config.spring_boot_tools.enabled ~= false then
+    if config.spring_boot_tools.enable then
         deps:push({ name = 'spring-boot-tools', version = config.spring_boot_tools.version })
     end
 
