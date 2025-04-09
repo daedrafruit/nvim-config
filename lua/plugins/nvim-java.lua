@@ -3,7 +3,7 @@ require('java').setup {
     enable = false
   },
 	lombok = {
-    enable = false
+    enable = true
   },
 	spring_boot_tools = {
     enable = false

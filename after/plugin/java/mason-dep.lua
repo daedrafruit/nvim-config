@@ -8,15 +8,15 @@ mason_dep.get_pkg_list = function(config)
         { name = 'jdtls', version = config.jdtls.version },
     })
 
-    if config.lombok.enabled then
+    if config.lombok.enable then
         deps:push({ name = 'lombok-nightly', version = config.lombok.version })
     end
 
-    if config.java_test.enabled then
+    if config.java_test.enable then
         deps:push({ name = 'java-test', version = config.java_test.version })
     end
 
-    if config.java_debug_adapter.enabled then
+    if config.java_debug_adapter.enable then
         deps:push({ name = 'java-debug-adapter', version = config.java_debug_adapter.version })
     end
 
