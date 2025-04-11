@@ -20,9 +20,5 @@ return {
 			end,
 		}
 
-		lspconfig.jdtls.setup{
-			on_attach = function(client, bufnr)
-			end,
-		}
 	end,
 }
