@@ -15,15 +15,11 @@ return {
 
 		local dap = require('dap')
 
-		local is_windows = vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1
-
 		--C++
 		dap.adapters.cppdbg = {
 		id = 'cppdbg',
 		type = 'executable',
-		command = is_windows
-				and vim.fn.stdpath("data") .. '\\mason\\packages\\cpptools\\extension\\debugAdapters\\bin\\OpenDebugAD7.exe'
-				or vim.fn.stdpath("data") .. '/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+		command = vim.fn.stdpath("data") .. '/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
 			options = {
 				detached = false
 			}
@@ -35,7 +31,7 @@ return {
 				type = "cppdbg",
 				request = "launch",
 				program = function() 
-					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. (is_windows and '\\' or '/'), 'file')
+					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
 				end,
 				cwd = '${workspaceFolder}',
 				stopAtEntry = false,
@@ -62,7 +58,7 @@ return {
 				type = "gdb",
 				request = "launch",
 				program = function()
-					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. (is_windows and '\\' or '/'), 'file')
+					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
 				end,
 				cwd = "${workspaceFolder}",
 				stopAtBeginningOfMainSubprogram = true,
