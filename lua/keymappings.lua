@@ -9,6 +9,9 @@ vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', { noremap = true, sil
 -- change to the root based on .git
 vim.keymap.set('n', '<leader>cD', function() root = vim.fs.root(0, '.git') vim.cmd("cd " .. root) end, { noremap = true, silent = true })
 
+--open terminal
+vim.keymap.set("n", "<leader>ct", ":botright split<CR>:resize 10<CR>:terminal<CR>:startinsert<CR>")
+
 -- make/run 
 vim.keymap.set('n', '<leader>mm', ':wa<CR>:!make<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>mc', ':!make clean<CR>', { noremap = true, silent = true })

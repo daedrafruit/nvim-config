@@ -65,9 +65,9 @@ return {
 			},
 		}
 
+		--Java
 		local shared = {}
 
-		--Java
 		dap.configurations.java = {
 			{
 				type = 'java',
