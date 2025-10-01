@@ -1,7 +1,7 @@
 return {
 	'mfussenegger/nvim-dap',
 	keys = {
-			{ '<leader>dr', function() require('dap').continue() end, { noremap = true, silent = true } },
+			{ '<leader>dr', ':DapContinue<CR>', { noremap = true, silent = true } },
 			{ '<F9>', ':DapStepOver<CR>', { noremap = true, silent = true } },
 			{ '<F10>', ':DapStepInto<CR>', { noremap = true, silent = true } },
 			{ '<F11>', ':DapStepOver<CR>', { noremap = true, silent = true } },
