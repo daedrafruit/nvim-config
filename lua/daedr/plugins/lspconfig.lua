@@ -5,6 +5,15 @@ local function get_html_server_cmd()
     return { server_path, "--stdio" }
 end
 
+vim.lsp.start({
+  name = 'Godot',
+  cmd = cmd,
+  root_dir = vim.fs.dirname(vim.fs.find({ 'project.godot', '.git' }, { upward = true })[1]),
+  on_attach = function(client, bufnr)
+    vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
+  end
+})
+
 return {
 	'neovim/nvim-lspconfig',
 	event = { "BufReadPost", "BufNewFile" },
@@ -30,6 +39,11 @@ return {
 		lspconfig.html.setup {
 			cmd = get_html_server_cmd(),
 		}
+
+		lspconfig.gdscript.setup{
+			cmd = { "nc", "localhost", "6008" },
+		}
+
 
 	end,
 }

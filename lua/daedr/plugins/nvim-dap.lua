@@ -65,9 +65,26 @@ return {
 			},
 		}
 
-		local shared = {}
+		--godot
+		dap.adapters.godot = {
+			type = "server",
+			command = "127.0.0.1",
+			port = 6006
+		}
+
+		dap.configurations.gdscript = {
+			{
+				type = "godot",
+				request = "launch",
+				name = 'Launch scene',
+				project = "${workspaceFolder}",
+				launch_scene = true,
+			},
+		}
 
 		--Java
+		local shared = {}
+
 		dap.configurations.java = {
 			{
 				type = 'java',

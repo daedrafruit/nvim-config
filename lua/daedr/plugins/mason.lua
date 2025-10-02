@@ -22,6 +22,7 @@ return {
 			"debugpy", --python debugger
 			"lua-language-server", --lua lsp
 			"html-lsp", --html lsp
+			"gdscript", --godot lsp
 		}
 
 		for _, tool in ipairs(ensure_installed) do
