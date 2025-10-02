@@ -6,7 +6,8 @@ vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('data') .. '/mason/bin'
 
 require('options')
 require('keymappings')
---require('netrw') --file browser
+require('lsp')
+require('netrw') --file browser
 
 --plugins
 require('daedr.lazy')
