@@ -17,11 +17,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     { import = "daedr.plugins" },
-    { import = "daedr.plugins.autocomplete" },
-    { import = "daedr.plugins.dap" },
-    { import = "daedr.plugins.lsp" },
-    { import = "daedr.plugins.workflow" },
-    { import = "daedr.plugins.appearance" },
+    --{ import = "daedr.plugins.autocomplete" },
+    --{ import = "daedr.plugins.dap" },
+    --{ import = "daedr.plugins.lsp" },
+    --{ import = "daedr.plugins.workflow" },
+    --{ import = "daedr.plugins.appearance" },
   },
   checker = { enabled = true },
 })

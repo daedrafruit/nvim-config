@@ -5,9 +5,17 @@ return {
 	lazy = false,
 	config = function()
 		require("catppuccin").setup({
+			integrations = {
+				telescope = {
+					enabled = true,
+				},
+			},
 			transparent_background = true,
+			float = {
+					transparent = true,
+			},
 		})
 
-		vim.cmd.colorscheme "catppuccin"
+	vim.cmd.colorscheme "catppuccin"
 	end,
 }

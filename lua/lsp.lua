@@ -34,3 +34,13 @@ vim.lsp.config("html", {
 })
 vim.lsp.enable("html")
 
+--require('jdtls-setup')
+
+--java
+--vim.lsp.config("jdtls", {
+--	root_markers = {'gradlew', 'pom.xml'},
+--	filetypes = { "java" },
+--	cmd = {"jdtls", workspace_folder },
+--})
+--vim.lsp.enable("jdtls")
+

@@ -58,7 +58,7 @@ return {
 				foldfunc = "builtin",
 				setopt = true,
 			}
-			local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+			--local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
 
 			require('ufo').setup({
 					fold_virt_text_handler = handler

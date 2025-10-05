@@ -81,77 +81,20 @@ return {
 				launch_scene = true,
 			},
 		}
-
-		--Java
-		local shared = {}
+		dap.adapters.java = {
+			type = 'server',
+			host = '127.0.0.1',
+			port = 1044,
+		}
 
 		dap.configurations.java = {
 			{
 				type = 'java',
-				request = 'launch',
-				name = 'Gradle',
-				projectName = function()
-					local content = io.open('settings.gradle'):read('*a')
-					return content:match("rootProject%.name%s*=%s*['\"]([%w-]+)['\"]")
-				end,
-				mainClass = function()
-					local content = io.open('build.gradle'):read('*a')
-					return content:match("mainClass%s*=%s*['\"]([%w%.]+)['\"]")
-				end,
-				--javaExec added by jdtls
-				--classPaths added by jdtls
-				--modulePaths added by jdtls
-			},
-
-			--read what we can from gradle, input rest
-			{
-				type = 'java',
-				request = 'launch',
-				name = 'Gradle with Args',
-				projectName = function()
-					return (io.open('settings.gradle'):read('*a') or ''):match("rootProject%.name%s*=%s*['\"]([%w-]+)['\"]") or ''
-				end,
-				mainClass = function()
-					return (io.open('build.gradle'):read('*a') or ''):match("mainClass%s*=%s*['\"]([%w%.]+)['\"]") or ''
-				end,
-				vmArgs = function()
-					local input = vim.fn.input('Enter vmArgs, Args: ', '')
-					local vmArgs, args = input:match("^%s*([^,]*),%s*(.-)%s*$")
-					if not vmArgs then vmArgs = '' end
-					if not args then args = '' end
-					shared.args = args:gsub("^%s*(.-)%s*$", "%1")
-					return vmArgs:gsub("^%s*(.-)%s*$", "%1")
-				end,
-				args = function() return shared.args or '' end,
-			},
-
-			--universal gradle config that attaches directly, buggy
-			{
-				type = "java",
-				request = "attach",
-				name = "Run Gradle and Attach",
-				hostName = "127.0.0.1",
-				port = 5005,
-				program = function()
-					vim.fn.jobstart(
-						'gradle run',
-						{
-							on_exit = function(_, code)
-								print("Gradle exited with code", code)
-							end
-						}
-					)
-				end,
-				mainClass = function()
-					local content = io.open('build.gradle'):read('*a')
-					return content:match("mainClass%s*=%s*['\"]([%w%.]+)['\"]")
-				end,
-				projectName = function()
-					local content = io.open('settings.gradle'):read('*a')
-					return content:match("rootProject%.name%s*=%s*['\"]([%w-]+)['\"]")
-				end
+				name = 'Debug (Attach)',
+				request = 'attach',
+				hostName = '127.0.0.1',
+				port = 1044,
 			},
 		}
-
 	end,
 }

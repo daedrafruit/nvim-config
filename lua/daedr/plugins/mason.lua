@@ -1,6 +1,6 @@
 return {
 	'williamboman/mason.nvim',
-	dependencies = { 'williamboman/mason-lspconfig.nvim' },
+	--dependencies = { 'williamboman/mason-lspconfig.nvim' },
   cmd = { "Mason", "MasonInstall", "MasonUpdate" },
 	config = function()
 		require("mason").setup({
@@ -22,7 +22,7 @@ return {
 			"debugpy", --python debugger
 			"lua-language-server", --lua lsp
 			"html-lsp", --html lsp
-			"gdscript", --godot lsp
+			"jdtls", --java lsp
 		}
 
 		for _, tool in ipairs(ensure_installed) do
