@@ -10,8 +10,6 @@ return {
         "gradlew", "mvnw", "pom.xml", "build.gradle", ".git"
       })
       if root_dir == "" then return end
-			local mason = vim.fn.stdpath("data") .. "/mason"
-			local dbg = vim.fn.glob(mason .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", 1)
 
       local workspace_dir = vim.fn.stdpath("data") .. "/jdtls-workspaces/"
 
@@ -19,7 +17,7 @@ return {
       local launcher = vim.fn.glob(jdtls_base .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 
       local cmd = {
-        "java",
+        "/usr/lib/jvm/java-21-openjdk/bin/java",
         "-Declipse.application=org.eclipse.jdt.ls.core.id1",
         "-Dosgi.bundles.defaultStartLevel=4",
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -32,6 +30,8 @@ return {
         "-data", workspace_dir,
       }
 
+			local mason = vim.fn.stdpath("data") .. "/mason"
+			local dbg = vim.fn.glob(mason .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", 1)
       jdtls.start_or_attach({
         cmd = cmd,
         root_dir = root_dir,

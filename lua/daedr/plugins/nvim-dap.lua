@@ -84,16 +84,18 @@ return {
 		dap.adapters.java = {
 			type = 'server',
 			host = '127.0.0.1',
-			port = 1044,
+			port = 5005,
 		}
 
+		
+		require('jdtls').setup_dap({ hotcodereplace = 'auto' })
 		dap.configurations.java = {
 			{
 				type = 'java',
 				name = 'Debug (Attach)',
 				request = 'attach',
 				hostName = '127.0.0.1',
-				port = 1044,
+				port = 5005,
 			},
 		}
 	end,
