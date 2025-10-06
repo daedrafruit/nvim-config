@@ -24,7 +24,7 @@ vim.opt.backspace = "indent,eol,start"
 vim.opt.showcmd = true
 
 -- Set the style of the status line.
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 
 -- Automatically write the file if it's modified when switching buffers or exiting.
 vim.opt.autowrite = true

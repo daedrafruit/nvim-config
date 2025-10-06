@@ -1,17 +1,20 @@
 return {
 	'mfussenegger/nvim-dap',
 	keys = {
-			{ '<leader>dr', ':DapContinue<CR>', { noremap = true, silent = true } },
 			{ '<F5>', ':DapContinue<CR>', { noremap = true, silent = true } },
 			{ '<F10>', ':DapStepOver<CR>', { noremap = true, silent = true } },
 			{ '<F11>', ':DapStepInto<CR>', { noremap = true, silent = true } },
 			{ '<S-F11>', ':DapStepOut<CR>', { noremap = true, silent = true } },
+
 			{ '<leader>db', ':DapToggleBreakpoint<CR>', { noremap = true, silent = true } },
 			{ '<F9>', ':DapToggleBreakpoint<CR>', { noremap = true, silent = true } },
+
 			{ '<leader>dB', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { noremap = true, silent = true } },
 			{ '<S-F9>', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { noremap = true, silent = true } },
+
 			{ '<leader>dlp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { noremap = true, silent = true } },
 			{ '<leader>dR', ':DapToggleRepl<CR>', { noremap = true, silent = true } },
+
 			{ '<leader>dq', ':DapTerminate<CR>', { noremap = true, silent = true } },
 			{ '<S-F5>', ':DapTerminate<CR>', { noremap = true, silent = true } },
 	},
