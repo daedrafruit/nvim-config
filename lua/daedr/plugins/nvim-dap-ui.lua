@@ -1,8 +1,11 @@
 return {
 	'rcarriga/nvim-dap-ui',
 	lazy = true,
-	keys = { "<leader>dr" },
-	dependencies = { 'nvim-neotest/nvim-nio' },
+	keys = {
+		"<leader>dr",
+		"<F5>",
+	},
+	dependencies = { "mfussenegger/nvim-dap", 'nvim-neotest/nvim-nio' },
 	config = function()
 		require("dapui").setup()
 
