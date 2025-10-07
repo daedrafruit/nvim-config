@@ -37,7 +37,7 @@ return {
 				name = "Launch file",
 				type = "cppdbg",
 				request = "launch",
-				program = function() 
+				program = function()
 					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
 				end,
 				cwd = '${workspaceFolder}',
@@ -94,7 +94,6 @@ return {
 			port = 5005,
 		}
 
-		
 		require('jdtls').setup_dap({ hotcodereplace = 'auto' })
 		dap.configurations.java = {
 			{
