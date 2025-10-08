@@ -33,5 +33,6 @@ vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { nore
 vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap=true, silent=true })
 vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { noremap=true, silent=true })
 --show error window
-local bufopts = { noremap = true, silent = true, buffer = bufnr }
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, bufopts)
+local bufopts = { noremap = true, silent = true}
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, bufopts)
+vim.keymap.set('n', '<leader>E', '<cmd>lua vim.lsp.buf.code_action()<CR>', { noremap=true, silent=true })
