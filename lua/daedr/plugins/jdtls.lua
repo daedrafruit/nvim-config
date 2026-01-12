@@ -7,14 +7,21 @@ return {
       local jdtls = require("jdtls")
 
       local root_dir = require("jdtls.setup").find_root({
-        "gradlew", "mvnw", "pom.xml", "build.gradle", ".git"
+        "gradlew",
+        "mvnw",
+        "pom.xml",
+        "build.gradle",
       })
-      if root_dir == "" then return end
+      if not root_dir then return end
 
-      local workspace_dir = vim.fn.stdpath("data") .. "/jdtls-workspaces/"
+      local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
+      local workspace_dir = vim.fn.stdpath("data")
+        .. "/jdtls-workspaces/"
+        .. project_name
 
       local jdtls_base = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
-      local launcher = vim.fn.glob(jdtls_base .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+      local launcher =
+        vim.fn.glob(jdtls_base .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 
       local cmd = {
         "/usr/lib/jvm/java-21-openjdk/bin/java",
@@ -30,14 +37,22 @@ return {
         "-data", workspace_dir,
       }
 
-			local mason = vim.fn.stdpath("data") .. "/mason"
-			local dbg = vim.fn.glob(mason .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", 1)
+      local mason = vim.fn.stdpath("data") .. "/mason"
+      local dbg = vim.fn.glob(
+        mason
+          .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
+        1
+      )
+
       jdtls.start_or_attach({
         cmd = cmd,
         root_dir = root_dir,
-				init_options = { 
-					bundles = { dbg }, 
-				},
+
+        filetypes = { "java" },
+
+        init_options = {
+          bundles = { dbg },
+        },
       })
     end,
   },

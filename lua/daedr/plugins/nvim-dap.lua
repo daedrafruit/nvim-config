@@ -1,23 +1,29 @@
 return {
 	'mfussenegger/nvim-dap',
 	keys = {
-			{ '<F5>', ':DapContinue<CR>', { noremap = true, silent = true } },
-			{ '<F10>', ':DapStepOver<CR>', { noremap = true, silent = true } },
-			{ '<F11>', ':DapStepInto<CR>', { noremap = true, silent = true } },
-			{ '<S-F11>', ':DapStepOut<CR>', { noremap = true, silent = true } },
+    { "<F5>",  function() require("dap").continue() end },
+    { "<F10>", function() require("dap").step_over() end },
+    { "<F11>", function() require("dap").step_into() end },
+    { "<S-F11>", function() require("dap").step_out() end },
 
-			{ '<leader>db', ':DapToggleBreakpoint<CR>', { noremap = true, silent = true } },
-			{ '<F9>', ':DapToggleBreakpoint<CR>', { noremap = true, silent = true } },
+    { "<leader>db", function() require("dap").toggle_breakpoint() end },
+    { "<F9>", function() require("dap").toggle_breakpoint() end },
 
-			{ '<leader>dB', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { noremap = true, silent = true } },
-			{ '<S-F9>', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, { noremap = true, silent = true } },
+    { "<leader>dB", function()
+        require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+      end, desc = "DAP Conditional Breakpoint" },
+    { "<S-F9>", function()
+        require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+      end, desc = "DAP Conditional Breakpoint" },
 
-			{ '<leader>dlp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { noremap = true, silent = true } },
-			{ '<leader>dR', ':DapToggleRepl<CR>', { noremap = true, silent = true } },
+    { "<leader>dlp", function()
+        require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+      end, desc = "DAP Log Point" },
 
-			{ '<leader>dq', ':DapTerminate<CR>', { noremap = true, silent = true } },
-			{ '<S-F5>', ':DapTerminate<CR>', { noremap = true, silent = true } },
-	},
+    { "<leader>dR", function() require("dap").repl.toggle() end },
+    { "<leader>dq", function() require("dap").terminate() end },
+    { "<S-F5>",   function() require("dap").terminate() end },
+  },
 	config = function()
 
 		local dap = require('dap')
