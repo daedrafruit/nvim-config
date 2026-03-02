@@ -1,11 +1,9 @@
 return {
 	'mfussenegger/nvim-dap',
-
 	
 	keys = {
-    --{ "<F5>",  function() require("dap").continue() end },
-		--for some reason the above method is buggy
-    { "<F5>", ":DapContinue<CR>" },
+		{ '<F5>', function() require("dap").continue() end },
+		{ '<leader>dr', function() require("dap").continue() end },
     { "<F10>", function() require("dap").step_over() end },
     { "<F11>", function() require("dap").step_into() end },
     { "<S-F11>", function() require("dap").step_out() end },
@@ -29,8 +27,6 @@ return {
     { "<S-F5>",   function() require("dap").terminate() end },
   },
 	config = function()
-		vim.keymap.set('n', '<F5>', function() require("dap").continue() end, { noremap = true, silent = true })
-		vim.keymap.set('n', '<leader>dr', function() require("dap").continue() end, { noremap = true, silent = true })
 		local dap = require('dap')
 
 		--C++
