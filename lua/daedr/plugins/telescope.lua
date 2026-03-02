@@ -45,19 +45,20 @@ return {
 			})
 		end, { noremap = true, silent = true })
 
-		local colors = require("catppuccin.palettes").get_palette()
-		local TelescopeColor = {
-			TelescopePromptBorder = { fg = colors.text },
-			TelescopeResultsBorder = { fg = colors.text },
-			TelescopePreviewBorder = { fg = colors.text },
-			TelescopePromptTitle = { fg = colors.text },
-			TelescopeResultsTitle = { fg = colors.text },
-			TelescopePreviewTitle = { fg = colors.text },
-		}
+		--make white border
+		--local colors = require("catppuccin.palettes").get_palette()
+		--local TelescopeColor = {
+		--	TelescopePromptBorder = { fg = colors.text },
+		--	TelescopeResultsBorder = { fg = colors.text },
+		--	TelescopePreviewBorder = { fg = colors.text },
+		--	TelescopePromptTitle = { fg = colors.text },
+		--	TelescopeResultsTitle = { fg = colors.text },
+		--	TelescopePreviewTitle = { fg = colors.text },
+		--}
 
-		for hl, col in pairs(TelescopeColor) do
-			vim.api.nvim_set_hl(0, hl, col)
-		end
+		--for hl, col in pairs(TelescopeColor) do
+		--	vim.api.nvim_set_hl(0, hl, col)
+		--end
 
 
 		vim.keymap.set('n', '<leader>ff', builtin.find_files, { noremap = true, silent = true })

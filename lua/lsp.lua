@@ -1,5 +1,24 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+--keymappings
+vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap=true, silent=true })
+vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', { noremap=true, silent=true })
+vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', { noremap=true, silent=true })
+vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help({border = "single"})<CR>', { noremap=true, silent=true })
+vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap=true, silent=true })
+--show error window
+local bufopts = { noremap = true, silent = true}
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, bufopts)
+vim.keymap.set('n', '<leader>E', '<cmd>lua vim.lsp.buf.code_action()<CR>', { noremap=true, silent=true })
+
+--vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { noremap=true, silent=true })
+vim.keymap.set("n", "gr", function()
+  require("telescope.builtin").lsp_references({
+    show_line = false,
+    include_declaration = false,
+  })
+end)
+
 --lua
 vim.lsp.config("lua_ls", {
   capabilities = capabilities,
