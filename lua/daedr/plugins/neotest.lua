@@ -18,20 +18,20 @@ return {
       "nvim-treesitter/nvim-treesitter",
 		},
 		keys = {
-			{ "<leader>ta", function() require("neotest").run.attach() end, desc = "Attach to Test (Neotest)" },
-			{ "<leader>tt", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run File (Neotest)" },
-			{ "<leader>tT", function() require("neotest").run.run(vim.uv.cwd()) end, desc = "Run All Test Files (Neotest)" },
-			{ "<leader>tr", function() require("neotest").run.run() end, desc = "Run Nearest (Neotest)" },
-			{ "<leader>tl", function() require("neotest").run.run_last() end, desc = "Run Last (Neotest)" },
-			{ "<leader>ts", function() require("neotest").summary.toggle() end, desc = "Toggle Summary (Neotest)" },
-			{ "<leader>to", function() require("neotest").output.open({ enter = true, auto_close = true }) end, desc = "Show Output (Neotest)" },
-			{ "<leader>tO", function() require("neotest").output_panel.toggle() end, desc = "Toggle Output Panel (Neotest)" },
-			{ "<leader>tS", function() require("neotest").run.stop() end, desc = "Stop (Neotest)" },
-			{ "<leader>tw", function() require("neotest").watch.toggle(vim.fn.expand("%")) end, desc = "Toggle Watch (Neotest)" },
+			{ "<leader>ta", function() require("neotest").run.attach() end },
+			{ "<leader>tt", function() require("neotest").run.run(vim.fn.expand("%")) end }, -- run file
+			{ "<leader>tT", function() require("neotest").run.run(vim.uv.cwd()) end }, -- run all files
+			{ "<leader>tr", function() require("neotest").run.run() end }, -- run nearest
+			{ "<leader>tl", function() require("neotest").run.run_last() end },
+			{ "<leader>ts", function() require("neotest").summary.toggle() end },
+			{ "<leader>to", function() require("neotest").output.open({ enter = true, auto_close = true }) end },
+			{ "<leader>tO", function() require("neotest").output_panel.toggle() end },
+			{ "<leader>tS", function() require("neotest").run.stop() end },
+			{ "<leader>tw", function() require("neotest").watch.toggle(vim.fn.expand("%")) end },
+			{ "<leader>td", function() require("neotest").run.run({strategy = "dap"}) end }, -- debug test
 		},
 		config = function()
-			local neotest = require("neotest")
-			neotest.setup({
+			require("neotest").setup({
 				adapters = {
 					require("neotest-java")({
 						-- config here
