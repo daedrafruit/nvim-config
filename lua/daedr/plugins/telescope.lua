@@ -3,12 +3,14 @@ return {
 	dependencies = { 'nvim-lua/plenary.nvim' },
 	keys = {
     { '<leader>ff', function() require('telescope.builtin').find_files() end },
-    { '<leader>fg', function() require('telescope.builtin').live_grep() end },
+    { '<leader>ft', function() require('telescope.builtin').live_grep() end },
     { '<leader>fb', function() require('telescope.builtin').buffers() end },
     { '<leader>fh', function() require('telescope.builtin').help_tags() end },
     { '<leader>fr', function() require('telescope.builtin').oldfiles() end },
-    { '<Leader>fd', function() require('telescope.builtin').git_status({ layout_strategy = 'vertical' }) end },
-    { '<Leader>fD', function() require('telescope.builtin').git_commits({ layout_strategy = 'vertical' }) end },
+
+    { '<Leader>gd', function() require('telescope.builtin').git_status() end },
+    { '<Leader>gc', function() require('telescope.builtin').git_commits() end },
+    { '<Leader>gb', function() require('telescope.builtin').git_branches() end },
 	},
 	config = function()
 		require('telescope').setup {

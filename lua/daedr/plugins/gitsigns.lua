@@ -81,8 +81,8 @@ return {
         map("n", "<leader>sR", gs.reset_buffer, "Reset buffer")
         map("n", "<leader>sp", gs.preview_hunk, "Preview hunk")
         map("n", "<leader>sb", gs.blame_line, "Blame line")
-        map("n", "<leader>sd", gs.diffthis, "Diff this")
-        map("n", "<leader>sD", function() gs.diffthis("~") end, "Diff against ~")
+        map("n", "<leader>gD", gs.diffthis, "Diff this")
+        --map("n", "<leader>gdd", function() gs.diffthis("~") end, "Diff against ~")
 
         -- Toggles
         map("n", "<leader>sB", gs.toggle_current_line_blame, "Toggle blame")
