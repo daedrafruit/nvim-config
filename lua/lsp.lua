@@ -3,12 +3,12 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 --keymappings
 vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap=true, silent=true })
 vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', { noremap=true, silent=true })
-vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover({border = "single"})<CR>', { noremap=true, silent=true })
-vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help({border = "single"})<CR>', { noremap=true, silent=true })
+vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap=true, silent=true })
+vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { noremap=true, silent=true })
 vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap=true, silent=true })
 --show error window
 local bufopts = { noremap = true, silent = true}
-vim.keymap.set("n", "<leader>e", '<cmd>lua vim.diagnostic.open_float({border = "single"})<CR>', { noremap=true, silent=true })
+vim.keymap.set("n", "<leader>e", '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap=true, silent=true })
 vim.keymap.set('n', '<leader>E', '<cmd>lua vim.lsp.buf.code_action()<CR>', { noremap=true, silent=true })
 
 --vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { noremap=true, silent=true })

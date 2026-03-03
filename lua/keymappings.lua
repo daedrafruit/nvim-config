@@ -14,9 +14,10 @@ vim.keymap.set("n", "<leader>ct", ":botright split<CR>:resize 10<CR>:terminal<CR
 
 -- make/run 
 vim.keymap.set('n', '<leader>mm', ':wa<CR>:!make<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>mc', ':!make clean<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>mb', ':wa<CR>:!make build<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>mc', ':!make clean<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>mr', ':!make run<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>mt', ':!make test<CR>', { noremap = true, silent = true })
 
 -- use leader for window commands
 vim.keymap.set('n', '<leader>w', '<C-w>', { noremap = true, silent = true })

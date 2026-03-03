@@ -4,6 +4,8 @@ vim.o.exrc = true
 vim.o.secure = true
 vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('data') .. '/mason/bin'
 
+vim.o.winborder = "single"
+
 require('options')
 require('keymappings')
 require('lsp')
@@ -11,3 +13,4 @@ require('netrw') --file browser
 
 --plugins
 require('daedr.lazy')
+
