@@ -10,8 +10,8 @@ vim.opt.relativenumber = true
 
 -- tab options
 vim.opt.expandtab = true -- use spaces as tab
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 
 -- persistent undo
@@ -46,3 +46,5 @@ vim.opt.statusline:append("%R")               -- read only flag
 --vim.opt.statusline:append("%4p%%")            -- percent through file
 
 
+-- always show sign column (git signs, error etc on left)
+vim.opt.signcolumn = "yes"

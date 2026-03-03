@@ -2,12 +2,13 @@ return {
 	'nvim-telescope/telescope.nvim',
 	dependencies = { 'nvim-lua/plenary.nvim' },
 	keys = {
-		'<leader>fi',
-		'<leader>ff',
-		'<leader>fg',
-		'<leader>fb',
-		'<leader>fh',
-		'<leader>fr',
+    { '<leader>ff', function() require('telescope.builtin').find_files() end },
+    { '<leader>fg', function() require('telescope.builtin').live_grep() end },
+    { '<leader>fb', function() require('telescope.builtin').buffers() end },
+    { '<leader>fh', function() require('telescope.builtin').help_tags() end },
+    { '<leader>fr', function() require('telescope.builtin').oldfiles() end },
+    { '<Leader>fd', function() require('telescope.builtin').git_status({ layout_strategy = 'vertical' }) end },
+    { '<Leader>fD', function() require('telescope.builtin').git_commits({ layout_strategy = 'vertical' }) end },
 	},
 	config = function()
 		require('telescope').setup {
@@ -44,28 +45,6 @@ return {
 				no_ignore_parent = true,
 			})
 		end, { noremap = true, silent = true })
-
-		--make white border
-		--local colors = require("catppuccin.palettes").get_palette()
-		--local TelescopeColor = {
-		--	TelescopePromptBorder = { fg = colors.text },
-		--	TelescopeResultsBorder = { fg = colors.text },
-		--	TelescopePreviewBorder = { fg = colors.text },
-		--	TelescopePromptTitle = { fg = colors.text },
-		--	TelescopeResultsTitle = { fg = colors.text },
-		--	TelescopePreviewTitle = { fg = colors.text },
-		--}
-
-		--for hl, col in pairs(TelescopeColor) do
-		--	vim.api.nvim_set_hl(0, hl, col)
-		--end
-
-
-		vim.keymap.set('n', '<leader>ff', builtin.find_files, { noremap = true, silent = true })
-		vim.keymap.set('n', '<leader>fg', builtin.live_grep, { noremap = true, silent = true })
-		vim.keymap.set('n', '<leader>fb', builtin.buffers, { noremap = true, silent = true })
-		vim.keymap.set('n', '<leader>fh', builtin.help_tags, { noremap = true, silent = true })
-		vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { noremap = true, silent = true })
 	end,
 }
 
