@@ -54,3 +54,10 @@ vim.lsp.config("html", {
 })
 vim.lsp.enable("html")
 
+--godot
+vim.lsp.config("godot", {
+  capabilities = capabilities,
+  filetypes = { "gd", "gdscript" },
+  cmd = { "nc", "127.0.0.1", "6005" },
+})
+vim.lsp.enable("godot")
