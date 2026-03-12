@@ -1,3 +1,4 @@
+-- see ftplugin/java
 return {
   {
     "mfussenegger/nvim-jdtls",
