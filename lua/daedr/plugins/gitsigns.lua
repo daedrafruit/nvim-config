@@ -21,7 +21,7 @@ return {
       untracked    = { text = "|" },
     },
 
-    signcolumn = true,
+    signcolumn = false,
     numhl      = false,
     linehl     = false,
     word_diff  = false,

@@ -47,4 +47,4 @@ vim.opt.statusline:append("%R")               -- read only flag
 
 
 -- always show sign column (git signs, error etc on left)
-vim.opt.signcolumn = "yes"
+--vim.opt.signcolumn = "yes"

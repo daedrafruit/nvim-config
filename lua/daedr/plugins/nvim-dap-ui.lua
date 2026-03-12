@@ -2,9 +2,14 @@ return {
   'rcarriga/nvim-dap-ui',
   dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
   config = function()
+
     local dap, dapui = require("dap"), require("dapui")
 
     dapui.setup()
+
+    vim.keymap.set('n', '<leader>duq', function() dapui.close() end, { noremap=true, silent=true })
+    vim.keymap.set('n', '<leader>duo', function() dapui.open() end, { noremap=true, silent=true })
+
 
     dap.listeners.after.event_initialized["dapui_config"] = function()
       dapui.open()
@@ -15,5 +20,6 @@ return {
     dap.listeners.before.event_exited["dapui_config"] = function()
       dapui.close()
     end
+
   end,
 }
