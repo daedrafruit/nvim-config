@@ -17,12 +17,8 @@ return {
 		require('telescope').setup {
 			defaults = {
 				file_ignore_patterns = { "%.git/", "%.cache/", "%.o" },
-				borderchars = {
-					prompt = { " ", " ", "─", "│", "│", " ", "─", "└" },
-					results = { "─", " ", " ", "│", "┌", "─", " ", "│" },
-					preview = { "─", "│", "─", "│", "┬", "┐", "┘", "┴" },
-				},
-				mappings = {
+        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+        mappings = {
 					i = {
 						--disable "insert" mode, close with esc
 						["<esc>"] = require("telescope.actions").close
