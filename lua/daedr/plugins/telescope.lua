@@ -7,6 +7,7 @@ return {
     { '<leader>fb', function() require('telescope.builtin').buffers() end },
     { '<leader>fh', function() require('telescope.builtin').help_tags() end },
     { '<leader>fr', function() require('telescope.builtin').oldfiles() end },
+    { '<leader>fs', function() require('telescope.builtin').lsp_document_symbols() end },
 
     { '<Leader>gd', function() require('telescope.builtin').git_status() end },
     { '<Leader>gc', function() require('telescope.builtin').git_commits() end },
