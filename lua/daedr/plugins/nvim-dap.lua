@@ -96,7 +96,6 @@ return {
 			},
 		}
 
-
 		require('jdtls').setup_dap({ hotcodereplace = 'auto' })
 		dap.configurations.java = {
 			{
@@ -107,5 +106,26 @@ return {
 				port = 5005,
 			},
 		}
+
+    dap.adapters["pwa-chrome"] = {
+      type = "server",
+      host = "localhost",
+      port = "${port}",
+      executable = {
+        command = "js-debug-adapter",
+        args = { "${port}" },
+      },
+    }
+
+    dap.configurations.javascriptreact = {
+      {
+        type = "pwa-chrome",
+        request = "launch",
+        name = "Debug React App",
+        url = "http://localhost:5173",
+        webRoot = "${workspaceFolder}",
+      },
+    }
+
 	end,
 }

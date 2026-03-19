@@ -23,6 +23,8 @@ return {
 			"lua-language-server", --lua lsp
 			"html-lsp", --html lsp
 			"jdtls", --java lsp
+      "typescript-language-server", --react js etc
+      "js-debug-adapter", -- react js debugger
 		}
 
 		for _, tool in ipairs(ensure_installed) do

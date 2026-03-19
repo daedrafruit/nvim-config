@@ -19,6 +19,7 @@ vim.keymap.set("n", "gr", function()
   })
 end)
 
+
 --lua
 vim.lsp.config("lua_ls", {
   capabilities = capabilities,
@@ -61,3 +62,11 @@ vim.lsp.config("godot", {
   cmd = { "nc", "127.0.0.1", "6005" },
 })
 vim.lsp.enable("godot")
+
+--typescript
+vim.lsp.config("typescript", {
+  capabilities = capabilities,
+  cmd = {'typescript-language-server', '--stdio'},
+  filetypes = { "javascriptreact" },
+})
+vim.lsp.enable("typescript")
