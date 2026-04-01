@@ -2,16 +2,17 @@ return {
 	'nvim-telescope/telescope.nvim',
 	dependencies = { 'nvim-lua/plenary.nvim' },
 	keys = {
-    { '<leader>ff', function() require('telescope.builtin').find_files() end },
-    { '<leader>fg', function() require('telescope.builtin').live_grep() end },
-    { '<leader>fb', function() require('telescope.builtin').buffers() end },
-    { '<leader>f?', function() require('telescope.builtin').help_tags() end },
-    { '<leader>fr', function() require('telescope.builtin').oldfiles() end },
-    { '<leader>fs', function() require('telescope.builtin').lsp_document_symbols() end },
+    { '<leader>ff', function() require('telescope.builtin').find_files() end,            desc = 'find files' },
+    { '<leader>fg', function() require('telescope.builtin').live_grep() end,             desc = 'live grep' },
+    { '<leader>fb', function() require('telescope.builtin').buffers() end,               desc = 'buffers' },
+    { '<leader>f?', function() require('telescope.builtin').help_tags() end,             desc = 'help tags' },
+    { '<leader>fr', function() require('telescope.builtin').oldfiles() end,              desc = 'recent files' },
+    { '<leader>fs', function() require('telescope.builtin').lsp_document_symbols() end,  desc = 'document symbols' },
+    { '<leader>fk', function() require('telescope.builtin').keymaps() end,               desc = 'keymaps' },
 
-    { '<Leader>gd', function() require('telescope.builtin').git_status() end },
-    { '<Leader>gc', function() require('telescope.builtin').git_commits() end },
-    { '<Leader>gb', function() require('telescope.builtin').git_branches() end },
+    { '<Leader>gd', function() require('telescope.builtin').git_status() end,            desc = 'git status' },
+    { '<Leader>gc', function() require('telescope.builtin').git_commits() end,           desc = 'git commits' },
+    { '<Leader>gb', function() require('telescope.builtin').git_branches() end,          desc = 'git branches' },
 	},
 	config = function()
 		require('telescope').setup {
@@ -43,7 +44,7 @@ return {
 				no_ignore = true,
 				no_ignore_parent = true,
 			})
-		end, { noremap = true, silent = true })
+		end, { noremap = true, silent = true, desc = 'find all files (w/ ignored)' })
 	end,
 }
 

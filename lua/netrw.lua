@@ -9,5 +9,5 @@ vim.g.netrw_browse_split = 4
 -- take up 25% of window
 vim.g.netrw_winsize = 25
 
-vim.keymap.set('n', '<leader>n', ':let g:netrw_browse_split = 4<CR>:Vex<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>N', ':let g:netrw_browse_split = 0<CR>:Ex<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>n', ':let g:netrw_browse_split = 4<CR>:Vex<CR>', { noremap = true, silent = true, desc = 'netrw vertical split' })
+vim.keymap.set('n', '<leader>N', ':let g:netrw_browse_split = 0<CR>:Ex<CR>', { noremap = true, silent = true, desc = 'netrw in current window' })

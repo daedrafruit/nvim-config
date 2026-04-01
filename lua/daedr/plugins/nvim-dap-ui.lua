@@ -7,8 +7,8 @@ return {
 
     dapui.setup()
 
-    vim.keymap.set('n', '<leader>duq', function() dapui.close() end, { noremap=true, silent=true })
-    vim.keymap.set('n', '<leader>duo', function() dapui.open() end, { noremap=true, silent=true })
+    vim.keymap.set('n', '<leader>duq', function() dapui.close() end, { noremap=true, silent=true, desc = 'dapui close' })
+    vim.keymap.set('n', '<leader>duo', function() dapui.open() end, { noremap=true, silent=true, desc = 'dapui open' })
 
 
     dap.listeners.after.event_initialized["dapui_config"] = function()

@@ -11,15 +11,15 @@ return {
 			vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 			-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-			vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
-			vim.keymap.set('n', 'zr', require('ufo').openAllFolds)
+			vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = 'open all folds' })
+			vim.keymap.set('n', 'zr', require('ufo').openAllFolds, { desc = 'open all folds' })
 			--vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
-			vim.keymap.set('n', 'zM', ':%foldc<CR>', { noremap = true, silent = true })
-			vim.keymap.set('n', 'zm', ':%foldc<CR>', { noremap = true, silent = true })
+			vim.keymap.set('n', 'zM', ':%foldc<CR>', { noremap = true, silent = true, desc = 'close all folds' })
+			vim.keymap.set('n', 'zm', ':%foldc<CR>', { noremap = true, silent = true, desc = 'close all folds' })
 			--vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
 			--vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith)
 
-			vim.keymap.set('n', '<tab>', 'zak<CR>')
+			vim.keymap.set('n', '<tab>', 'zak<CR>', { desc = 'toggle fold' })
 
 			local handler = function(virtText, lnum, endLnum, width, truncate)
 					local newVirtText = {}
