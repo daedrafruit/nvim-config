@@ -1,15 +1,15 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 --keymappings
-vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap=true, silent=true, desc = 'go to definition' })
-vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', { noremap=true, silent=true, desc = 'go to implementation' })
-vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap=true, silent=true, desc = 'hover docs' })
-vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { noremap=true, silent=true, desc = 'signature help' })
-vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap=true, silent=true, desc = 'rename symbol' })
+vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap=true, silent=true, desc = 'lsp go to definition' })
+vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', { noremap=true, silent=true, desc = 'lsp go to implementation' })
+vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', { noremap=true, silent=true, desc = 'lsp hover docs' })
+vim.keymap.set('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { noremap=true, silent=true, desc = 'lsp signature help' })
+vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', { noremap=true, silent=true, desc = 'lsp rename symbol' })
 --show error window
 local bufopts = { noremap = true, silent = true}
-vim.keymap.set("n", "<leader>e", '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap=true, silent=true, desc = 'show diagnostics' })
-vim.keymap.set('n', '<leader>E', '<cmd>lua vim.lsp.buf.code_action()<CR>', { noremap=true, silent=true, desc = 'code action' })
+vim.keymap.set("n", "<leader>e", '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap=true, silent=true, desc = 'lsp show diagnostics' })
+vim.keymap.set('n', '<leader>E', '<cmd>lua vim.lsp.buf.code_action()<CR>', { noremap=true, silent=true, desc = 'lsp code action' })
 
 --vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', { noremap=true, silent=true })
 vim.keymap.set("n", "gr", function()
@@ -17,7 +17,7 @@ vim.keymap.set("n", "gr", function()
     show_line = false,
     include_declaration = false,
   })
-end, { desc = 'references' })
+end, { desc = 'lsp references' })
 
 
 --lua

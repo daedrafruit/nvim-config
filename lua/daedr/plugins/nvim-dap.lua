@@ -13,14 +13,14 @@ return {
 
     { "<leader>dB", function()
         require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
-      end, desc = "dap Conditional Breakpoint" },
+      end, desc = "dap conditional breakpoint" },
     { "<S-F9>", function()
         require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
-      end, desc = "dap Conditional Breakpoint" },
+      end, desc = "dap conditional breakpoint" },
 
     { "<leader>dlp", function()
         require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-      end, desc = "dap Log Point" },
+      end, desc = "dap log point" },
 
     { "<leader>dR", function() require("dap").repl.toggle() end, desc = "dap toggle REPL" },
     { "<leader>dq", function() require("dap").terminate() end, desc = "dap terminate" },
