@@ -12,6 +12,9 @@ vim.keymap.set('n', '<leader>cD', function() root = vim.fs.root(0, '.git') vim.c
 --open terminal
 vim.keymap.set("n", "<leader>ct", ":botright split<CR>:resize 10<CR>:terminal<CR>:startinsert<CR>", { desc = 'open terminal split' })
 
+-- format json
+vim.keymap.set('n', '<leader>jq', ':%!jq .<CR>', { noremap = true, silent = true, desc = 'format json with jq' })
+
 -- make/run
 vim.keymap.set('n', '<leader>mm', ':wa<CR>:!make<CR>', { noremap = true, silent = true, desc = 'make' })
 vim.keymap.set('n', '<leader>mb', ':wa<CR>:!make build<CR>', { noremap = true, silent = true, desc = 'make build' })
