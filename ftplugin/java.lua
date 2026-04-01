@@ -7,11 +7,7 @@ local jdtls_base = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 local launcher = vim.fn.glob(jdtls_base .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 
 local config = {
-	name = "jdtls",
-
-	dbg = vim.fn.glob(
-		mason .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", 1
-	),
+  name = "jdtls",
 
   cmd = {
     "/usr/lib/jvm/java-21-openjdk/bin/java",
@@ -29,6 +25,16 @@ local config = {
     "--add-opens", "java.base/java.util=ALL-UNNAMED",
     "--add-opens", "java.base/java.lang=ALL-UNNAMED",
   },
+
+  init_options = {
+    bundles = {
+      vim.fn.glob(
+        mason .. "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
+        1
+      )
+    },
+  },
 }
 
-require('jdtls').start_or_attach(config)
+require("jdtls").start_or_attach(config)
+require("jdtls").setup_dap({ hotcodereplace = "auto" })

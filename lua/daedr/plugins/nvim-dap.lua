@@ -96,17 +96,6 @@ return {
 			},
 		}
 
-		require('jdtls').setup_dap({ hotcodereplace = 'auto' })
-		dap.configurations.java = {
-			{
-				type = 'java',
-				name = 'Debug (Attach)',
-				request = 'attach',
-				hostName = '127.0.0.1',
-				port = 5005,
-			},
-		}
-
     dap.adapters["pwa-chrome"] = {
       type = "server",
       host = "localhost",
