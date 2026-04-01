@@ -79,6 +79,17 @@ return {
 			},
 		}
 
+    --java, this is just the attach see ftplugin for more 
+    dap.configurations.java = {
+      {
+        type = "java",
+        request = "attach",
+        name = "Attach (5005)",
+        hostName = "127.0.0.1",
+        port = 5005,
+      },
+    }
+
 		--godot
 		dap.adapters.godot = {
 			type = "server",
