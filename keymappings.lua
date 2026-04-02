@@ -34,3 +34,20 @@ vim.keymap.set('n', '<leader>g1', ':diffget 1<CR>', { noremap = true, silent = t
 vim.keymap.set('n', '<leader>g2', ':diffget 2<CR>', { noremap = true, silent = true, desc = 'diffget buffer 2' })
 vim.keymap.set('n', '<leader>g3', ':diffget 3<CR>', { noremap = true, silent = true, desc = 'diffget buffer 3' })
 vim.keymap.set('n', '<leader>g4', ':diffget 4<CR>', { noremap = true, silent = true, desc = 'diffget buffer 4' })
+
+--lsp
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap=true, silent=true, desc = 'lsp go to definition' })
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { noremap=true, silent=true, desc = 'lsp go to implementation' })
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap=true, silent=true, desc = 'lsp hover docs' })
+vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { noremap=true, silent=true, desc = 'lsp signature help' })
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { noremap=true, silent=true, desc = 'lsp rename symbol' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { noremap=true, silent=true, desc = 'lsp show diagnostics' })
+vim.keymap.set('n', '<leader>E', vim.lsp.buf.code_action, { noremap=true, silent=true, desc = 'lsp code action' })
+
+vim.keymap.set("n", "gr", function()
+  require("telescope.builtin").lsp_references({
+    show_line = false,
+    include_declaration = false,
+  })
+end, { desc = 'lsp references' })
+

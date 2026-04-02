@@ -27,7 +27,7 @@ require('plugins.telescope')
 require('plugins.harpoon')
 --external tools plugin manager (lsp, dap etc)
 require('plugins.mason')
-require('lsp')
+require('plugins.lspconfig')
 --signiture help
 require('plugins.lsp_signiture')
 --completion
