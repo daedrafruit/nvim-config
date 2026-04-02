@@ -12,13 +12,19 @@ require("mason").setup({
 local mason_registry = require("mason-registry")
 
 local ensure_installed = {
+  "tree-sitter-cli", --treesitter
+
   "clangd", --cpp lsp
   "cpptools", --cpp debugger		
+
   "pyright", --python lsp
   "debugpy", --python debugger
+
   "lua-language-server", --lua lsp
-  "html-lsp", --html lsp
+
   "jdtls", --java lsp
+
+  "html-lsp", --html lsp
   "typescript-language-server", --react js etc
   "js-debug-adapter", -- react js debugger
 }
