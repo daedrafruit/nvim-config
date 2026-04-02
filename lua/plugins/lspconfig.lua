@@ -10,6 +10,7 @@ vim.lsp.config('ts_ls', {
   filetypes = { "javascriptreact" },
 })
 
+--java is handled by jdtls/ftplugin
 vim.lsp.enable({
   'lua_ls',
   'pyright',
@@ -18,3 +19,4 @@ vim.lsp.enable({
   'gdscript',
   'ts_ls'
 })
+
