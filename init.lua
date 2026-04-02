@@ -8,9 +8,36 @@ vim.o.winborder = "single"
 
 require('options')
 require('keymappings')
+
+--color scheme
+require('plugins.catppuccin')
+require('plugins.nvim-treesitter')
+--show colors (hex etc)
+require('plugins.nvim-colorizer')
+--code folding
+require('plugins.nvim-ufo')
+--better matching (especially for html)
+require('plugins.vim-matchup')
+require('plugins.markdown-preview')
+require('plugins.gitsigns')
+
+--file exploration
+require('netrw')
+require('plugins.telescope')
+require('plugins.harpoon')
+--external tools plugin manager (lsp, dap etc)
+require('plugins.mason')
 require('lsp')
-require('netrw') --file browser
+--signiture help
+require('plugins.lsp_signiture')
+--completion
+require('plugins.cmp')
+require('plugins.friendly-snippets')
+require('plugins.jdtls')
 
---plugins
-require('daedr.lazy')
-
+--debug adapter
+require('plugins.nvim-dap')
+require('plugins.dap-python')
+require('plugins.nvim-dap-ui')
+--tests
+require('plugins.neotest')
