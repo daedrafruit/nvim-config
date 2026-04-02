@@ -2,7 +2,6 @@
 vim.o.exrc = true
 -- restrict unsafe commands in local configs
 vim.o.secure = true
-vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('data') .. '/mason/bin'
 
 vim.o.winborder = "single"
 
