@@ -23,9 +23,6 @@ vim.opt.backspace = "indent,eol,start"
 -- Show command-line messages, such as when executing commands.
 vim.opt.showcmd = true
 
--- Set the style of the status line.
-vim.opt.laststatus = 3
-
 -- Automatically write the file if it's modified when switching buffers or exiting.
 vim.opt.autowrite = true
 
@@ -33,18 +30,17 @@ vim.opt.autowrite = true
 vim.opt.cursorline = true
 
 -- Automatically read the file if it's changed outside of Neovim.
-vim.opt.autoread = true
+--vim.opt.autoread = true
 
-vim.opt.statusline = ""
---vim.opt.statusline:append("%l")           -- current line
---vim.opt.statusline:append("/%L")              -- total lines
-vim.opt.statusline:append("%=")           -- split in half (go to right side)
-vim.opt.statusline:append("%t")            -- filename
-vim.opt.statusline:append("%m")               -- modified flag
-vim.opt.statusline:append("%R")               -- read only flag
---vim.opt.statusline:append("%4n")              -- buffer number
---vim.opt.statusline:append("%4p%%")            -- percent through file
+-- Set the style of the status line.
+vim.opt.laststatus = 3
+vim.opt.ruler = false
 
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.opt.statusline = "%=%t%m%R"
+  end,
+})
 
 -- always show sign column (git signs, error etc on left)
 --vim.opt.signcolumn = "yes"
