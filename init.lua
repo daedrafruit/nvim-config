@@ -1,42 +1,29 @@
--- load project specific .nvimrc or .vimrc files
-vim.o.exrc = true
--- restrict unsafe commands in local configs
-vim.o.secure = true
-
-vim.o.winborder = "single"
-
 require('options')
 require('keymappings')
 
---color scheme
-require('plugins.catppuccin')
-require('plugins.nvim-treesitter')
---show colors (hex etc)
-require('plugins.nvim-colorizer')
---code folding
-require('plugins.nvim-ufo')
---better matching (especially for html)
-require('plugins.vim-matchup')
-require('plugins.markdown-preview')
-require('plugins.gitsigns')
+require('plugins.catppuccin') --color scheme
+require('plugins.nvim-treesitter') --manages tree-sitter parsers (syntax highlighting)
+require('plugins.nvim-colorizer') --show colors (hex etc)
 
---file exploration
-require('netrw')
-require('plugins.telescope')
-require('plugins.harpoon')
---external tools plugin manager (lsp, dap etc)
-require('plugins.mason')
-require('plugins.lspconfig')
---signiture help
-require('plugins.lsp_signiture')
---completion
-require('plugins.cmp')
-require('plugins.friendly-snippets')
-require('plugins.jdtls')
+require('plugins.nvim-ufo') --code folding
+require('plugins.vim-matchup') --better matching (especially for html)
+require('plugins.markdown-preview') --browser preview for md
+require('plugins.gitsigns') --only using for quick diff (<leader>gD)
 
---debug adapter
-require('plugins.nvim-dap')
-require('plugins.dap-python')
-require('plugins.nvim-dap-ui')
---tests
-require('plugins.neotest')
+require('netrw') --builtin file manager
+require('plugins.telescope') --various finders (grep, files, references etc.)
+require('plugins.harpoon') --quick switch files
+
+require('plugins.mason') --external tools plugin manager (lsp, dap etc)
+require('plugins.vim-illuminate') --highlight word references under cursor
+require('plugins.lspconfig') --premade configs for lsp
+
+require('plugins.lsp_signiture') --signiture help
+require('plugins.cmp') --completion
+require('plugins.friendly-snippets') --premade snippets for many langs
+require('plugins.jdtls') --java tools (debugger, lsp, tests, etc.)
+
+require('plugins.nvim-dap') --debug adapter
+require('plugins.dap-python') --debug adapter for python
+require('plugins.nvim-dap-ui') --ui for dap
+require('plugins.neotest') --tests, only configured for java atm

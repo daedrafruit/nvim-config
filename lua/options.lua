@@ -1,3 +1,10 @@
+-- load project specific .nvimrc or .vimrc files
+vim.o.exrc = true
+-- restrict unsafe commands in local configs
+vim.o.secure = true
+
+-- square border for popups
+vim.o.winborder = "single"
 
 -- use system clipboard
 vim.opt.clipboard = "unnamedplus"
