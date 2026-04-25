@@ -23,4 +23,9 @@ return {
   s("malloc", {
     t(""), i(1, "Type"), t(" *"), i(2, "ptr"), t(" = malloc(sizeof("), i(3, "Type"), t("));"),
   }),
+  s("typedef struct", {
+    t("typedef struct {"), t({ "", "\t" }),
+    i(2),
+    t({ "", "} " }), i(1, "Name"), t(";"),
+  }),
 }
