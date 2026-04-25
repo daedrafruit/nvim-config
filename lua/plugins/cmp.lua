@@ -12,6 +12,8 @@ vim.pack.add {
 local cmp = require('cmp')
 local luasnip = require('luasnip')
 
+require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/snippets" })
+
 cmp.setup({
   snippet = {
     expand = function(args)

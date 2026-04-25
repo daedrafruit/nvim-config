@@ -20,7 +20,6 @@ require('plugins.lspconfig') --premade configs for lsp
 
 require('plugins.lsp_signiture') --signiture help
 require('plugins.cmp') --completion
-require('plugins.friendly-snippets') --premade snippets for many langs
 require('plugins.jdtls') --java tools (debugger, lsp, tests, etc.)
 
 require('plugins.nvim-dap') --debug adapter
