@@ -23,6 +23,26 @@ return {
   s("malloc", {
     t(""), i(1, "Type"), t(" *"), i(2, "ptr"), t(" = malloc(sizeof("), i(3, "Type"), t("));"),
   }),
+  s("if", {
+    t("if ("), i(1), t({ ") {", "\t" }),
+    i(2),
+    t({ "", "}" }),
+  }),
+  s("else", {
+    t({ "else {", "\t" }),
+    i(1),
+    t({ "", "}" }),
+  }),
+  s("while", {
+    t("while ("), i(1), t({ ") {", "\t" }),
+    i(2),
+    t({ "", "}" }),
+  }),
+  s("func", {
+    i(1, "void"), t(" "), i(2, "name"), t("("), i(3), t({ ") {", "\t" }),
+    i(4),
+    t({ "", "}" }),
+  }),
   s("typedef struct", {
     t("typedef struct {"), t({ "", "\t" }),
     i(2),

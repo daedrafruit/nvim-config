@@ -14,6 +14,9 @@ local luasnip = require('luasnip')
 
 require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/snippets" })
 
+vim.keymap.set({ "n", "i", "s" }, "<Tab>", function() luasnip.jump(1) end)
+vim.keymap.set({ "n", "i", "s" }, "<S-Tab>", function() luasnip.jump(-1) end)
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -41,9 +44,7 @@ cmp.setup({
       end),
 
       ["<Tab>"] = cmp.mapping(function(fallback)
-        if luasnip.locally_jumpable(1) then
-          luasnip.jump(1)
-        elseif cmp.visible() then
+        if cmp.visible() then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
         else
           fallback()
@@ -51,9 +52,7 @@ cmp.setup({
       end, { "i", "s" }),
 
       ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if luasnip.locally_jumpable(-1) then
-          luasnip.jump(-1)
-        elseif cmp.visible() then
+        if cmp.visible() then
           cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
         else
           fallback()
@@ -62,8 +61,8 @@ cmp.setup({
     }),
 
   sources = cmp.config.sources({
+    { name = 'luasnip', priority = 1000 },
     { name = 'nvim_lsp' },
-    { name = 'luasnip' },
     { name = 'nvim_lsp_signature_help' }
 
   }, {

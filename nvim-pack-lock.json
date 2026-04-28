@@ -50,7 +50,7 @@
       "src": "https://github.com/iamcco/markdown-preview.nvim"
     },
     "mason.nvim": {
-      "rev": "12ddd182d9efbdc848b540f16484a583d52da0fb",
+      "rev": "cb8445f8ce85d957416c106b780efd51c6298f89",
       "src": "https://github.com/williamboman/mason.nvim"
     },
     "neotest": {
@@ -58,7 +58,7 @@
       "src": "https://github.com/nvim-neotest/neotest"
     },
     "neotest-java": {
-      "rev": "ea5b54ab319a2821d725304b38c92158f25333d1",
+      "rev": "b0cb0d40fe8e456277e541e952cc08121c2954f6",
       "src": "https://github.com/rcasia/neotest-java"
     },
     "nvim": {
@@ -94,7 +94,7 @@
       "src": "https://github.com/mfussenegger/nvim-jdtls"
     },
     "nvim-lspconfig": {
-      "rev": "e146efacbafed3789ac568abcc5a981c5decaa58",
+      "rev": "eeef061d58d759b5419c1e20c4b3a5bc3154f871",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -122,7 +122,7 @@
       "src": "https://github.com/folke/snacks.nvim"
     },
     "telescope.nvim": {
-      "rev": "028d9a0695a0cc4cfa893889f8c408ed7ccc8adc",
+      "rev": "506338434fec5ad19cb1f8d45bf92d66c4917393",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
     "vim-illuminate": {
