@@ -31,13 +31,7 @@ cmp.setup({
     ['<Return>'] = cmp.mapping.confirm({ select = true }),
     ['<CR>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
-              if luasnip.expandable() then
-                  luasnip.expand()
-              else
-                  cmp.confirm({
-                      select = true,
-                  })
-              end
+              cmp.confirm({ select = true })
           else
               fallback()
           end

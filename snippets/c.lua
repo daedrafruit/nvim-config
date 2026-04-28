@@ -10,7 +10,7 @@ return {
     t({ "", "}" }),
   }),
   s("print", {
-    t('printf("'), i(1), t('");'),
+    t('printf("'), i(1), t('"'), i(2), t(");"),
   }),
   s("print int", {
     t('printf("%d\\n", '), i(1), t(");"),
@@ -21,10 +21,10 @@ return {
     t({ "", "}" }),
   }),
   s("malloc", {
-    t(""), i(1, "Type"), t(" *"), i(2, "ptr"), t(" = malloc(sizeof("), i(3, "Type"), t("));"),
+    t(""), i(1, "type"), t(" *"), i(2, "ptr"), t(" = malloc(sizeof("), i(3, "type"), t("));"),
   }),
   s("if", {
-    t("if ("), i(1), t({ ") {", "\t" }),
+    t("if ("), i(1, "expression"), t({ ") {", "\t" }),
     i(2),
     t({ "", "}" }),
   }),
@@ -34,7 +34,7 @@ return {
     t({ "", "}" }),
   }),
   s("while", {
-    t("while ("), i(1), t({ ") {", "\t" }),
+    t("while ("), i(1, "1"), t({ ") {", "\t" }),
     i(2),
     t({ "", "}" }),
   }),
