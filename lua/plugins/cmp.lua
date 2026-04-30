@@ -14,8 +14,20 @@ local luasnip = require('luasnip')
 
 require("luasnip.loaders.from_lua").load({ paths = vim.fn.stdpath("config") .. "/snippets" })
 
-vim.keymap.set({ "n", "i", "s" }, "<Tab>", function() luasnip.jump(1) end)
-vim.keymap.set({ "n", "i", "s" }, "<S-Tab>", function() luasnip.jump(-1) end)
+vim.keymap.set({ "n", "i", "s" }, "<Tab>", function()
+  if luasnip.in_snippet() and luasnip.locally_jumpable(1) then
+    luasnip.jump(1)
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+  end
+end)
+vim.keymap.set({ "n", "i", "s" }, "<S-Tab>", function()
+  if luasnip.in_snippet() and luasnip.locally_jumpable(-1) then
+    luasnip.jump(-1)
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<S-Tab>", true, false, true), "n", false)
+  end
+end)
 
 cmp.setup({
   snippet = {

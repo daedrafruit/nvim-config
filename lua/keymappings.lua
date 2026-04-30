@@ -2,6 +2,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- update all plugins
+vim.keymap.set("n", "<leader>pu", function() vim.pack.update() end, { desc = "update plugins" })
+
 -- change cwd
 vim.keymap.set('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', { noremap = true, silent = true, desc = 'cd to current file dir' })
 -- change to the parent directory of the current file's directory
