@@ -43,6 +43,11 @@ return {
     i(4),
     t({ "", "}" }),
   }),
+  s("define macro", {
+    t("#define "), i(1, "MACRO_NAME"), t("("), i(2), t({ ")\\", "\tdo {\\", "\t\t" }),
+    i(3),
+    t({ "\\", "\t} while (0)"}),
+  }),
   s("typedef struct", {
     t("typedef struct {"), t({ "", "\t" }),
     i(2),
