@@ -1,7 +1,8 @@
 require('options')
 require('keymappings')
 
-require('plugins.catppuccin') --color scheme
+--require('plugins.catppuccin') --color scheme
+require('plugins.everforest') --color scheme
 require('plugins.nvim-treesitter') --manages tree-sitter parsers (syntax highlighting)
 require('plugins.nvim-colorizer') --show colors (hex etc)
 
