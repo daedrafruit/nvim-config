@@ -25,5 +25,6 @@ require('plugins.jdtls') --java tools (debugger, lsp, tests, etc.)
 
 require('plugins.nvim-dap') --debug adapter
 require('plugins.dap-python') --debug adapter for python
-require('plugins.nvim-dap-ui') --ui for dap
+require('plugins.nvim-dap-view') --simple ui for dap
+--require('plugins.nvim-dap-ui') --ui for dap
 require('plugins.neotest') --tests, only configured for java atm
