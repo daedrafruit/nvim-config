@@ -31,9 +31,10 @@ vim.keymap.set('n', '<leader>f?', function() builtin.help_tags() end,           
 vim.keymap.set('n', '<leader>fr', function() builtin.oldfiles() end,              { desc = 'telescope recent files' })
 vim.keymap.set('n', '<leader>fs', function() builtin.lsp_document_symbols() end,  { desc = 'telescope document symbols' })
 vim.keymap.set('n', '<leader>fk', function() builtin.keymaps() end,               { desc = 'telescope keymaps' })
-vim.keymap.set('n', '<Leader>gd', function() builtin.git_status() end,            { desc = 'telescope git status' })
-vim.keymap.set('n', '<Leader>gc', function() builtin.git_commits() end,           { desc = 'telescope git commits' })
-vim.keymap.set('n', '<Leader>gb', function() builtin.git_branches() end,          { desc = 'telescope git branches' })
+
+--vim.keymap.set('n', '<Leader>gd', function() builtin.git_status() end,            { desc = 'telescope git status' })
+--vim.keymap.set('n', '<Leader>gc', function() builtin.git_commits() end,           { desc = 'telescope git commits' })
+--vim.keymap.set('n', '<Leader>gb', function() builtin.git_branches() end,          { desc = 'telescope git branches' })
 
 vim.keymap.set('n', '<leader>fi', function()
   builtin.find_files({
@@ -42,3 +43,15 @@ vim.keymap.set('n', '<leader>fi', function()
     no_ignore_parent = true,
   })
 end, { noremap = true, silent = true, desc = 'telescope find all files (w/ ignored)' })
+
+vim.keymap.set('n', '<leader>fG', function()
+    builtin.live_grep({
+        additional_args = function()
+            return {
+                "--hidden",
+                "--no-ignore",
+                "--no-ignore-parent",
+            }
+        end,
+    })
+end, { noremap = true, silent = true })

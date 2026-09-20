@@ -56,7 +56,18 @@ dap.configurations.c = {
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
     cwd = "${workspaceFolder}",
-    stopAtBeginningOfMainSubprogram = true,
+  },
+  {
+    name = "Platform IO",
+    type = "cppdbg",
+    request = "launch",
+    program = function()
+      return vim.fn.glob(vim.fn.getcwd() .. "/.pio/build/*/firmware.elf")
+    end,
+    cwd = "${workspaceFolder}",
+    MIMode = "gdb",
+    miDebuggerPath = "piodebuggdb",
+    miDebuggerArgs = "--project-dir ${workspaceFolder} -x .pioinit",
   },
 }
 

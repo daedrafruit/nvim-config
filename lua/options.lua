@@ -49,5 +49,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
+-- Disable modelines
+vim.opt.modeline = false
+
+
 -- always show sign column (git signs, error etc on left)
 --vim.opt.signcolumn = "yes"

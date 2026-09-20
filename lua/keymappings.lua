@@ -39,8 +39,23 @@ vim.keymap.set('n', '<leader>g3', ':diffget 3<CR>', { noremap = true, silent = t
 vim.keymap.set('n', '<leader>g4', ':diffget 4<CR>', { noremap = true, silent = true, desc = 'diffget buffer 4' })
 
 --lsp
+local function goto_vsplit(lsp_func)
+  return function()
+    vim.cmd('vsplit')
+    vim.cmd('wincmd L')
+    lsp_func()
+  end
+end
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap=true, silent=true, desc = 'lsp go to definition' })
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { noremap=true, silent=true, desc = 'lsp go to implementation' })
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { noremap=true, silent=true, desc = 'lsp go to declaration' })
+vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, { noremap=true, silent=true, desc = 'lsp go to type definition' })
+
+vim.keymap.set('n', '<leader>gd', goto_vsplit(vim.lsp.buf.definition), { noremap = true, silent = true, desc = 'lsp go to definition (split)' })
+vim.keymap.set('n', '<leader>gi', goto_vsplit(vim.lsp.buf.implementation), { noremap = true, silent = true, desc = 'lsp go to implementation (split)' })
+vim.keymap.set('n', '<leader>gD', goto_vsplit(vim.lsp.buf.declaration), { noremap = true, silent = true, desc = 'lsp go to declaration (split)' })
+vim.keymap.set('n', '<leader>gt', goto_vsplit(vim.lsp.buf.type_definition), { noremap = true, silent = true, desc = 'lsp go to type definition (split)' })
+
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap=true, silent=true, desc = 'lsp hover docs' })
 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { noremap=true, silent=true, desc = 'lsp signature help' })
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { noremap=true, silent=true, desc = 'lsp rename symbol' })
