@@ -11,6 +11,6 @@ require("dap-view").setup({
     controls = {
       enabled = true,
     },
-    sections = { "watches", "scopes", "exceptions", "breakpoints", "threads", "repl", "disassembly"},
+    sections = { "watches", "scopes", "exceptions", "breakpoints", "threads", "repl", "disassembly", "console"},
   },
 })
