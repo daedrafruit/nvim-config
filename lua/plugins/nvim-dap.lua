@@ -19,6 +19,13 @@ vim.keymap.set('n', "<leader>dq",  function() dap.terminate() end, { desc = "dap
 vim.keymap.set('n', "<S-F5>",      function() dap.terminate() end, { desc = "dap terminate" })
 vim.keymap.set('n', "<F17>",      function() dap.terminate() end, { desc = "dap terminate" })
 
+--prompt for program, prefilled from the last line of `make -n run`
+local function make_run_program()
+  local out = vim.fn.systemlist("make -n run")
+  local default = vim.v.shell_error == 0 and vim.split(out[#out], " ")[1] or ""
+  return vim.fn.input('Path to executable: ', default, 'file')
+end
+
 --C++
 dap.adapters.cppdbg = {
   id = 'cppdbg',
@@ -32,9 +39,7 @@ dap.configurations.cpp = {
     name = "Launch file",
     type = "cppdbg",
     request = "launch",
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
+    program = make_run_program,
     cwd = '${workspaceFolder}',
     stopAtEntry = false,
     setupCommands = {
@@ -55,26 +60,19 @@ dap.configurations.c = {
     name = "Launch",
     type = "gdb",
     request = "launch",
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
+    program = make_run_program,
     cwd = "${workspaceFolder}",
-  },
-  {
-    name = "Platform IO",
-    type = "cppdbg",
-    request = "launch",
-    program = function()
-      return vim.fn.glob(vim.fn.getcwd() .. "/.pio/build/*/firmware.elf")
-    end,
-    cwd = "${workspaceFolder}",
-    MIMode = "gdb",
-    miDebuggerPath = "piodebuggdb",
-    miDebuggerArgs = "--project-dir ${workspaceFolder} -x .pioinit",
   },
 }
 
--- java, this is just the attach — see ftplugin for more
+--try to use .vscode/launch.json
+local global_configs = dap.providers.configs["dap.global"]
+dap.providers.configs["dap.global"] = function(bufnr)
+  if vim.uv.fs_stat(vim.fn.getcwd() .. "/.vscode/launch.json") then return {} end
+  return global_configs(bufnr)
+end
+
+--java attach, see also ftplugin
 dap.configurations.java = {
   {
     type = "java",
