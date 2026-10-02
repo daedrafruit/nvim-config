@@ -7,14 +7,17 @@ vim.keymap.set('n', '<leader>dr',  function() dap.continue() end, { desc = "dap 
 vim.keymap.set('n', "<F10>",       function() dap.step_over() end, { desc = "dap step over" })
 vim.keymap.set('n', "<F11>",       function() dap.step_into() end, { desc = "dap step into" })
 vim.keymap.set('n', "<S-F11>",     function() dap.step_out() end, { desc = "dap step out" })
+vim.keymap.set('n', "<F23>",     function() dap.step_out() end, { desc = "dap step out" })
 vim.keymap.set('n', "<leader>db",  function() dap.toggle_breakpoint() end, { desc = "dap toggle breakpoint" })
 vim.keymap.set('n', "<F9>",        function() dap.toggle_breakpoint() end, { desc = "dap toggle breakpoint" })
 vim.keymap.set('n', "<leader>dB",  function() dap.set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, { desc = "dap conditional breakpoint" })
 vim.keymap.set('n', "<S-F9>",      function() dap.set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, { desc = "dap conditional breakpoint" })
+vim.keymap.set('n', "<F21>",      function() dap.set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, { desc = "dap conditional breakpoint" })
 vim.keymap.set('n', "<leader>dlp", function() dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end, { desc = "dap log point" })
 vim.keymap.set('n', "<leader>dR",  function() dap.repl.toggle() end, { desc = "dap toggle REPL" })
 vim.keymap.set('n', "<leader>dq",  function() dap.terminate() end, { desc = "dap terminate" })
 vim.keymap.set('n', "<S-F5>",      function() dap.terminate() end, { desc = "dap terminate" })
+vim.keymap.set('n', "<F17>",      function() dap.terminate() end, { desc = "dap terminate" })
 
 --C++
 dap.adapters.cppdbg = {
