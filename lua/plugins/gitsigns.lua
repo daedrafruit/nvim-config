@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
     map("n", "<leader>sR", gs.reset_buffer, "Reset buffer")
     map("n", "<leader>sp", gs.preview_hunk, "Preview hunk")
     map("n", "<leader>sb", gs.blame_line, "Blame line")
-    map("n", "<leader>gD", gs.diffthis, "Diff this")
+    map("n", "<leader>D", gs.diffthis, "Diff this")
 
     -- Toggles
     map("n", "<leader>sB", gs.toggle_current_line_blame, "Toggle blame")
