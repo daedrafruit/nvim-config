@@ -14,5 +14,5 @@ require("dap-view").setup({
     },
     sections = { "watches", "scopes", "exceptions", "breakpoints", "threads", "repl", "disassembly", "console"},
   },
-  auto_toggle = true,
+  --auto_toggle = true,
 })
